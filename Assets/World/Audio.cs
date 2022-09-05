@@ -52,21 +52,21 @@ public class Audio : AudioStreamPlayer
 		{"fr_2", GD.Load("res://Assets/Audio/Voice/fr/0/NewWorld/2.ogg")},
 		{"fr_3", GD.Load("res://Assets/Audio/Voice/fr/0/NewWorld/3.ogg")},
 	};
-	
-	public __TYPE aspClick = new AudioStreamPlayer()
-	public __TYPE aspBuild = new AudioStreamPlayer()
-	public __TYPE aspVoice = new AudioStreamPlayer()
+
+	public AudioStreamPlayer aspClick = new AudioStreamPlayer();
+	public AudioStreamPlayer aspBuild = new AudioStreamPlayer();
+	public AudioStreamPlayer aspVoice = new AudioStreamPlayer();
 	
 	public void _Ready()
 	{  
-		pauseMode = Node.PAUSE_MODE_PROCESS;
+		pauseMode = Node.PauseModeEnum.Process;
 	
-		aspClick.bus = "Effects";
-		aspBuild.bus = "Effects";
-		aspVoice.bus = "Voice";
+		aspClick.Bus = "Effects";
+		aspBuild.Bus = "Effects";
+		aspVoice.Bus = "Voice";
 	
-		aspClick.stream = SOUNDS["click"];
-		aspBuild.stream = SOUNDS["build"];
+		aspClick.Stream = SOUNDS["click"];
+		aspBuild.Stream = SOUNDS["build"];
 	
 	}
 	

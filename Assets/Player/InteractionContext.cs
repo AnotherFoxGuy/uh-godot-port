@@ -56,7 +56,7 @@ public class InteractionContext : Node
 
     // Spatial _playerCamera  = owner;
 
-    string _contextName = "Basic Interaction Context";
+    internal string _contextName = "Basic Interaction Context";
     Array validActions = new Array() { "main_command" };
 
     public void Interact(InputEvent ev, Node target, Vector2 position)

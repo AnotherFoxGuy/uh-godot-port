@@ -100,7 +100,7 @@ public class PlayerCamera : Spatial
         {
             var x = target["collider"] as CollisionObject;
             targetObject = x.GetParent();
-            targetPos = (UUtils.Map3To2((Vector3)target["position"]));
+            targetPos = (Utils.Map3To2((Vector3)target["position"]));
 
             //if targetObject is WorldThing:
             //	GD.Print(targetObject)
@@ -192,7 +192,7 @@ public class PlayerCamera : Spatial
             entity.Deselect();
         }
 
-        selectedEntities = new Array() { };
+        selectedEntities = new Array<WorldThing>() { };
 
         AbortContext();
 

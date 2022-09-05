@@ -305,4 +305,14 @@ public class WorldThing : Spatial
 
         _outline.Frame = _billboard.Frame;
     }
+
+    public void _OnExit()
+    {
+        
+    }
+
+    public void _OnEnter()
+    {
+        
+    }
 }

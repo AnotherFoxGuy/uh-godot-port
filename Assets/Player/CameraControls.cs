@@ -93,7 +93,7 @@ public class CameraControls : Node
         var x = Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left");
         var y = Input.GetActionStrength("move_down") - Input.GetActionStrength("move_up");
         Vector2 movementVelocity = new Vector2(x, y * _viewportAspect);
-        _origin.Translate(_basis.Xform(UUtils.Map2To3(movementVelocity)) * movementScale);
+        _origin.Translate(_basis.Xform(Utils.Map2To3(movementVelocity)) * movementScale);
     }
 
     public void _MoveDrag()
@@ -111,7 +111,7 @@ public class CameraControls : Node
                 //if newDragPos != _dragPos:
                 //	GD.PrintS(_dragPos, "=>", newDragPos)
                 var dragDir = (_dragPos - newDragPos) * _camera.Size / _viewportSize * 6;
-                var moveDir = _basis.Xform(UUtils.Map2To3(dragDir));
+                var moveDir = _basis.Xform(Utils.Map2To3(dragDir));
                 _origin.Translate(moveDir);
                 _dragPos = newDragPos;
             }
