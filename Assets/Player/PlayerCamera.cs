@@ -219,7 +219,7 @@ public class PlayerCamera : Spatial
             activeContext._OnExit();
         }
 
-        activeContext = newContext;
+        activeContext = (WorldThing)newContext;
         if (!activeContext.IsConnected("switch_context", this, "switch_context"))
         {
             // warning-ignore:returnValueDiscarded

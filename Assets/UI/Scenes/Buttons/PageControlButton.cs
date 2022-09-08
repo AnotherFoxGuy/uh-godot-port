@@ -10,7 +10,7 @@ public class PageControlButton : ButtonBase
 	 
 	public void _OnButtonBasePressed()
 	{  
-		Audio.PlaySnd("flippage");
+		Audio.Instance.PlaySnd("flippage");
 	
 	
 	}

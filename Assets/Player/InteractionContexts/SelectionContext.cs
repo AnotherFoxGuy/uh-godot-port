@@ -48,7 +48,7 @@ public class SelectionContext : InteractionContext
         Array selectedUnits = new Array() { };
         foreach (Unit unit in GetTree().GetNodesInGroup("units"))
         {
-            if (unit.faction == Game.player.faction)
+            if (unit.faction == Global.Game.player.faction)
             {
                 var unitPos = GetViewport().GetCamera().UnprojectPosition(unit.GlobalTransform.origin);
                 if (box.HasPoint(unitPos))
@@ -68,8 +68,8 @@ public class SelectionContext : InteractionContext
         //print_debug("Start selection")
         selPosStart = position;
 
-        _parent.sel_pos_start = GetViewport().GetMousePosition();
-        _parent.Show();
+        // _parent.sel_pos_start = GetViewport().GetMousePosition();
+        // _parent.Show();
     }
 
     public void _OnIaAltCommandReleased(Node target, Vector2 position)
@@ -77,10 +77,10 @@ public class SelectionContext : InteractionContext
         // End selection
         //print_debug("End selection")
 
-        if (!_parent.visible)
-        {
-            return;
-        }
+        // if (!_parent.visible)
+        // {
+        //     return;
+        // }
 
         selPosEnd = position;
         Array selection = null;
@@ -98,7 +98,7 @@ public class SelectionContext : InteractionContext
             selection = GetSelectedUnits(topLeft, bottomRight);
         }
 
-        _parent.Hide();
+        // _parent.Hide();
 
         if (selection != null)
         {
@@ -114,6 +114,6 @@ public class SelectionContext : InteractionContext
     {
         // Abort selection
         //print_debug("Abort selection")
-        _parent.Hide();
+        // _parent.Hide();
     }
 }

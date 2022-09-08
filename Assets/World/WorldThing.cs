@@ -58,6 +58,8 @@ public class WorldThing : Spatial
         get => _rotationDegree;
     }
 
+    public Global.Faction Faction;
+
     private RotationDegree _rotationDegree;
 
     internal Sprite3D _billboard;
@@ -312,6 +314,26 @@ public class WorldThing : Spatial
     }
 
     public void _OnEnter()
+    {
+        
+    }
+
+    public void Select()
+    {
+        
+    }
+
+    public void Deselect()
+    {
+        
+    }
+
+    public void Interact(InputEvent ev, Node targetObject, Vector2 targetPos)
+    {
+        
+    }
+
+    public void MoveTo(Vector2 map3To2)
     {
         
     }

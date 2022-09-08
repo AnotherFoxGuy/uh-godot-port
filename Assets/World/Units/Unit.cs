@@ -56,7 +56,7 @@ public class Unit : WorldThing
     // Sprite rotation
     public int direction = -1; // for non-animated movements, this is the frameIndex
     public int rotationOffset = 0;
-    public RotationDegree rotationIndex;
+    public int rotationIndex;
 
     public Buoy buoy = null;
 
@@ -64,7 +64,7 @@ public class Unit : WorldThing
     private AStarMap _asMap;
     private Spatial world;
 
-    public bool isMoving = false;
+    public static bool isMoving = false;
 
     public void _Ready()
     {
@@ -182,8 +182,7 @@ public class Unit : WorldThing
     {
         //prints("direction:", direction)
         //prints("rotation_offset:", rotationOffset)
-        rotationIndex =
-            (RotationDegree)Mathf.Wrap(direction + rotationOffset, 0, _billboard.Hframes * _billboard.Vframes);
+        rotationIndex = Mathf.Wrap(direction + rotationOffset, 0, _billboard.Hframes * _billboard.Vframes);
     }
 
     public void CreateBuoy(Vector2 targetPos)
@@ -218,7 +217,7 @@ public class Unit : WorldThing
 
         UpdateRotation();
 
-        SetRotationDegree(rotationIndex);
+        SetRotationDegree((RotationDegree)rotationIndex);
     }
 
     public void TakeDamage(int damage)

@@ -24,6 +24,8 @@ public class TileContext : InteractionContext
     public Array<Vector2> drawPath = new Array<Vector2>() { };
     public bool aborted = false;
 
+    private PlayerCamera _playerCamera;
+
     public void _Ready()
     {
         PHANTOMTileTexture = GD.Load("res://Assets/World/Buildings/Streets/Sprites/trail_single.png") as Texture;
@@ -137,7 +139,7 @@ public class TileContext : InteractionContext
 
     public void _OnIaAltCommandPressed(Node target, Vector2 position)
     {
-        if (!is_drawing)
+        if (!isDrawing)
         {
             GD.Print("Start tiling");
             isDrawing = true;

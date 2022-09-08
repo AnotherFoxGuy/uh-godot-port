@@ -17,7 +17,7 @@ public class Game : Spatial
     public Player player = null;
     //var players := new Array(){Player}
 
-    public Array aiPlayers = new Array() { };
+    public Array<Global.Faction> aiPlayers = new Array<Global.Faction>() { };
 
     public void _Ready()
     {
@@ -59,11 +59,11 @@ public class Game : Spatial
             Connect("notification", player, "_on_Game_notification");
 
             // Assign player starter ship
-            var ships = player.Ships;
-            ships[(GD.Randi() % ships.Size())].faction = player.faction;
+            var ships = Player.ships;
+            ships[(int)(GD.Randi() % ships.Count)].faction = player.faction;
 
-            Array<int> factions = (Array<int>)GD.Range(1, 15);
-            factions.Remove(factions.Find(player.faction)); // remove occupied faction from array
+            Array<Global.Faction> factions = new Array<Global.Faction>();
+            factions.Remove(player.faction); // remove occupied faction from array
 
             // Assign AI starter ships
             aiPlayers.Resize(Global.Instance.aiPlayers);
@@ -72,14 +72,14 @@ public class Game : Spatial
             foreach (var aiPlayer in GD.Range(aiPlayers.Count))
             {
                 aiPlayers[aiPlayer] = factions[(int)(GD.Randi() % factions.Count)]; // assign random faction to AI player
-                factions.Remove(factions.Find(aiPlayers[aiPlayer])); // remove occupied faction from array
+                factions.Remove(aiPlayers[aiPlayer]); // remove occupied faction from array
 
                 foreach (var ship in ships)
                 {
                     if (ship.faction == Global.Faction.NONE)
                     {
                         ship.faction = aiPlayers[aiPlayer];
-                        GD.Print(aiPlayers[aiPlayer], ship.name);
+                        GD.Print(aiPlayers[aiPlayer], ship.Name);
                         break;
 
                         // Remove any ships left over

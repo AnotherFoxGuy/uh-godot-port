@@ -6,7 +6,7 @@ public class Player : Control
     public Global.Faction faction = Global.Faction.NONE;
 
     public Array settlements = new Array();
-    public Array ships = new Array();
+    public static Array<Ship> ships = new Array<Ship>();
 
     public PlayerCamera camera;
 
