@@ -26,7 +26,7 @@ public class Game : Spatial
 
         GD.Randomize();
         GD.PrintS("[New Game]");
-        Audio.PlayEntrySnd();
+        Audio.Instance.PlayEntrySnd();
     }
 
     public void _Process(float _delta)
@@ -52,26 +52,26 @@ public class Game : Spatial
         if (playerStart != null)
         {
             player = new Player();
-            player.faction = Global.faction;
+            player.faction = Global.Instance.faction;
 
             AddChild(player);
             // warning-ignore:returnValueDiscarded
             Connect("notification", player, "_on_Game_notification");
 
             // Assign player starter ship
-            var ships = playerStart.ships;
+            var ships = player.Ships;
             ships[(GD.Randi() % ships.Size())].faction = player.faction;
 
             Array<int> factions = (Array<int>)GD.Range(1, 15);
             factions.Remove(factions.Find(player.faction)); // remove occupied faction from array
 
             // Assign AI starter ships
-            aiPlayers.Resize(Global.aiPlayers);
+            aiPlayers.Resize(Global.Instance.aiPlayers);
             if (aiPlayers.Count > 0)
                 GD.Print("ai_player", "ship");
             foreach (var aiPlayer in GD.Range(aiPlayers.Count))
             {
-                aiPlayers[aiPlayer] = factions[GD.Randi() % factions.Count]; // assign random faction to AI player
+                aiPlayers[aiPlayer] = factions[(int)(GD.Randi() % factions.Count)]; // assign random faction to AI player
                 factions.Remove(factions.Find(aiPlayers[aiPlayer])); // remove occupied faction from array
 
                 foreach (var ship in ships)
@@ -97,7 +97,7 @@ public class Game : Spatial
                 }
             }
 
-            if (!Global.has_traders)
+            if (!Global.Instance.hasTraders)
             {
                 var traders = GetNode("Traders");
                 if (traders != null)
@@ -108,7 +108,7 @@ public class Game : Spatial
                 }
             }
 
-            if (!Global.has_pirates)
+            if (!Global.Instance.hasPirates)
             {
                 var pirates = GetNode("Pirates");
                 if (pirates != null)
@@ -119,7 +119,7 @@ public class Game : Spatial
                 }
             }
 
-            if (!Global.has_disasters)
+            if (!Global.Instance.hasDisasters)
             {
                 return; // TODO
             }

@@ -10,4 +10,9 @@ public class Buoy : WorldThing
     {
         return;
     }
+    
+    private static readonly Lazy<Buoy> lazy =
+        new Lazy<Buoy>(() => new Buoy());
+
+    public static Buoy Instance => lazy.Value;
 }

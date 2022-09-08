@@ -11,14 +11,17 @@ public class AStarMap : Spatial
     [Signal]
     delegate void MapSizeChanged(int newMapSize);
 
-    public Dictionary allPoints = new Dictionary() { };
+    public Dictionary<string, int> allPoints = new Dictionary<string, int>() { };
     public AStar2D asNode = null;
 
     [Export]
     public int mapSize
     {
-        set { SetMapSize(value); }
+        set => SetMapSize(value);
+        get => _mapSize;
     }
+
+    private int _mapSize;
 
     [Export] NodePath gridMapPath;
 
@@ -81,10 +84,10 @@ public class AStarMap : Spatial
                             continue;
                         }
 
-                        if (allPoints.Contains(V2ToIndex(v2 + tile)))
+                        if (allPoints.Contains<>(V2ToIndex(v2 + tile)))
                         {
-                            Vector2 ind1 = (Vector2)allPoints[V2ToIndex(tile)];
-                            Vector2 ind2 = (Vector2)allPoints[V2ToIndex(tile + v2)];
+                            var ind1 = allPoints[V2ToIndex(tile)];
+                            var ind2 = allPoints[V2ToIndex(tile + v2)];
                             if (!asNode.ArePointsConnected(ind1, ind2))
                             {
                                 asNode.ConnectPoints(ind1, ind2, true);
@@ -109,14 +112,14 @@ public class AStarMap : Spatial
         return GD.Str((int)(v2.x)) + "," + GD.Str((int)(v2.y));
     }
 
-    public Array<Vector2> GetTilemapPath(Vector2 start, Vector2 end)
+    public Vector2[] GetTilemapPath(Vector2 start, Vector2 end)
     {
         //print_debug(start, end)
         var gmStart = V2ToIndex(gridMap.WorldToTilemap(start));
         var gmEnd = V2ToIndex(gridMap.WorldToTilemap(end));
         int startId = 0;
         int endId = 0;
-        if ( allPoints.Contains(gmStart))
+        if (allPoints.Contains<>(gmStart))
         {
             startId = allPoints[gmStart];
         }
@@ -124,7 +127,8 @@ public class AStarMap : Spatial
         {
             startId = asNode.GetClosestPoint(start);
         }
-        if (allPoints.Contains(gmEnd))
+
+        if (allPoints.Contains<>(gmEnd))
         {
             endId = allPoints[gmEnd];
         }
@@ -132,6 +136,7 @@ public class AStarMap : Spatial
         {
             endId = asNode.GetClosestPoint(end);
         }
+
         return asNode.GetPointPath(startId, endId);
     }
 
@@ -141,7 +146,7 @@ public class AStarMap : Spatial
             await ToSignal(this, "ready");
         _OnReady();
 
-        mapSize = newMapSize > 0 ? newMapSize : 0;
+        _mapSize = newMapSize > 0 ? newMapSize : 0;
 
         staticBody.Translation = new Vector3(mapSize, 0, mapSize);
         // collisionShape.Shape.extents = new Vector3(mapSize, 0, mapSize); 
@@ -153,8 +158,8 @@ public class AStarMap : Spatial
     {
         // if (staticBody == null)
         //     staticBody = $StaticBody as StaticBody
-        
-        if (collisionShape == null )
+
+        if (collisionShape == null)
             collisionShape = staticBody.GetNode("CollisionShape") as CollisionShape;
     }
 }

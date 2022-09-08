@@ -176,4 +176,9 @@ public class Config : Node
             }
         }*/
     }
+    
+    private static readonly Lazy<Config> lazy =
+        new Lazy<Config>(() => new Config());
+
+    public static Config Instance => lazy.Value;
 }

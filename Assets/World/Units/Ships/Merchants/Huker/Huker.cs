@@ -7,17 +7,20 @@ using Array = Godot.Collections.Array;
 [Tool]
 public class Huker : Ship
 {
-	 
-	onready Sprite3D factionColor = FindNode("FactionColor") as Sprite3D;
+	private Sprite3D factionColor;
 	
+	public new void _Ready()
+	{
+		factionColor= FindNode("FactionColor") as Sprite3D;
+	}
 	public void UpdateFactionColor()
 	{  
 		if(factionColor != null)
 		{
-			factionColor.modulate = Global.FACTION_COLORS[faction];
+			factionColor.Modulate = Global.FACTIONColors[(int)faction];
 	
 			// Match rotation of the ship's color outline with the main texture rotation
-			factionColor.frame = _billboard.Frame;
+			factionColor.Frame = _billboard.Frame;
 	
 	
 		}
