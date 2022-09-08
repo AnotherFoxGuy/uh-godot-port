@@ -15,35 +15,35 @@ public class Residence : Building
 	public const string RESIDENTIALStoneHouse = "res://Assets/World/Buildings/Residential/Residence.tscn";
 	
 	// Tier 1 (Sailors) Resources
-	public const var RESIDENTIALTent1Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent1_idle.png");
+	Texture RESIDENTIALTent1Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent1_idle.png");
 	
-	public const var RESIDENTIALTent2Idle45 = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent2_idle_45.png");
-	public const var RESIDENTIALTent2Idle135 = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent2_idle_135.png");
-	public const var RESIDENTIALTent2Idle225 = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent2_idle_225.png");
-	public const var RESIDENTIALTent2Idle315 = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent2_idle_315.png");
+	Texture RESIDENTIALTent2Idle45 = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent2_idle_45.png");
+	Texture RESIDENTIALTent2Idle135 = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent2_idle_135.png");
+	Texture RESIDENTIALTent2Idle225 = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent2_idle_225.png");
+	Texture RESIDENTIALTent2Idle315 = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent2_idle_315.png");
 	
-	public const var RESIDENTIALTent3Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent3_idle.png");
-	public const var RESIDENTIALTent4Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent4_idle.png");
-	public const var RESIDENTIALTent5Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent5_idle.png");
-	public const var RESIDENTIALTent6Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent6_idle.png");
+	Texture RESIDENTIALTent3Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent3_idle.png");
+	Texture RESIDENTIALTent4Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent4_idle.png");
+	Texture RESIDENTIALTent5Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent5_idle.png");
+	Texture RESIDENTIALTent6Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent6_idle.png");
 	
-	public const var RESIDENTIALTentRuined = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent_ruined.png");
+	Texture RESIDENTIALTentRuined = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Tent_ruined.png");
 	
 	// Tier 2 (Pioneers) Resources
-	public const var RESIDENTIALHut1Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Hut1_idle.png");
-	public const var RESIDENTIALHut2Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Hut2_idle.png");
-	public const var RESIDENTIALHut3Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Hut3_idle.png");
+	Texture RESIDENTIALHut1Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Hut1_idle.png");
+	Texture RESIDENTIALHut2Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Hut2_idle.png");
+	Texture RESIDENTIALHut3Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/Hut3_idle.png");
 	
 	// Tier 3 (Settlers) Resources
-	public const var RESIDENTIALHouseTimberFramed1Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/HouseTimberFramed1_idle.png");
-	public const var RESIDENTIALHouseTimberFramed2Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/HouseTimberFramed2_idle.png");
-	public const var RESIDENTIALHouseTimberFramed3Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/HouseTimberFramed3_idle.png");
+	Texture RESIDENTIALHouseTimberFramed1Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/HouseTimberFramed1_idle.png");
+	Texture RESIDENTIALHouseTimberFramed2Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/HouseTimberFramed2_idle.png");
+	Texture RESIDENTIALHouseTimberFramed3Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/HouseTimberFramed3_idle.png");
 	
 	// Tier 4 (Citizens) Resources
-	public const var RESIDENTIALStoneHouse1Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/StoneHouse1_idle.png");
-	public const var RESIDENTIALStoneHouse2Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/StoneHouse2_idle.png");
-	public const var RESIDENTIALStoneHouse3Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/StoneHouse3_idle.png");
-	public const var RESIDENTIALStoneHouse4Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/StoneHouse4_idle.png");
+	Texture RESIDENTIALStoneHouse1Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/StoneHouse1_idle.png");
+	Texture RESIDENTIALStoneHouse2Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/StoneHouse2_idle.png");
+	Texture RESIDENTIALStoneHouse3Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/StoneHouse3_idle.png");
+	Texture RESIDENTIALStoneHouse4Idle = GD.Load("res://Assets/World/Buildings/Residential/Sprites/StoneHouse4_idle.png");
 	
 	// Tier 1 (Sailors) Sprites
 	public static readonly Array RESIDENTIALTent2IdleAnim = new Array(){
@@ -98,25 +98,25 @@ public class Residence : Building
 	{  
 		switch( action)
 		{
-			{"idle",
+			case "idle":
 				if(tier == 0 && variation == 1) // the animated tent
 				{
 					currentAnim = RESIDENTIALTent2IdleAnim;
-					self.texture = RESIDENTIALTent2IdleAnim[self.rotation_index];
-					_billboard.vframes = 5;
-					_billboard.hframes = 5;
-					_billboard.region_rect = new Rect2(0, 0, 640, 640);
-					_billboard.region_enabled = true;
+					texture = RESIDENTIALTent2IdleAnim[rotationIndex];
+					_billboard.Vframes = 5;
+					_billboard.Hframes = 5;
+					_billboard.RegionRect = new Rect2(0, 0, 640, 640);
+					_billboard.RegionEnabled = true;
 	
-					_billboard.frame = NextFrame();
+					_billboard.Frame = NextFrame();
 				}
 				else
 				{
 					currentAnim = null;
-					self.texture = TIERS[tier][variation];
-					_billboard.vframes = 2;
-					_billboard.hframes = 2;
-					_billboard.region_enabled = false;
+					texture = TIERS[tier][variation];
+					_billboard.Vframes = 2;
+					_billboard.Hframes = 2;
+					_billboard.RegionEnabled = false;
 	
 				}
 		}
@@ -124,7 +124,7 @@ public class Residence : Building
 	
 	public void Destroy()
 	{  
-		self.texture = RESIDENTIALTentRuined;
+		texture = RESIDENTIALTentRuined;
 	
 	}
 	

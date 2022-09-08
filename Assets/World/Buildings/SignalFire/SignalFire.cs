@@ -13,22 +13,22 @@ public class SignalFire : Building
 	public const string SIGNALFireWooden = "res://Assets/World/Buildings/SignalFire/SignalFire.tscn";
 	
 	// Tier 1 (Sailors) Resources
-	public const var SIGNALFireIdle45 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFire_idle_45.png");
-	public const var SIGNALFireIdle135 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFire_idle_135.png");
-	public const var SIGNALFireIdle315 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFire_idle_225.png");
-	public const var SIGNALFireIdle225 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFire_idle_315.png");
+	Texture SIGNALFireIdle45 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFire_idle_45.png");
+	Texture SIGNALFireIdle135 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFire_idle_135.png");
+	Texture SIGNALFireIdle315 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFire_idle_225.png");
+	Texture SIGNALFireIdle225 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFire_idle_315.png");
 	
 	// Tier 2 (Pioneers) Resources
-	public const var SIGNALFireWoodenIdle45 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFireWooden_idle_45.png");
-	public const var SIGNALFireWoodenIdle135 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFireWooden_idle_135.png");
-	public const var SIGNALFireWoodenIdle315 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFireWooden_idle_225.png");
-	public const var SIGNALFireWoodenIdle225 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFireWooden_idle_315.png");
+	Texture SIGNALFireWoodenIdle45 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFireWooden_idle_45.png");
+	Texture SIGNALFireWoodenIdle135 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFireWooden_idle_135.png");
+	Texture SIGNALFireWoodenIdle315 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFireWooden_idle_225.png");
+	Texture SIGNALFireWoodenIdle225 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFireWooden_idle_315.png");
 	
 	// Tier 3 (Settlers) Resources
-	public const var SIGNALFireClinkerIdle45 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFireClinker_idle_45.png");
-	public const var SIGNALFireClinkerIdle135 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFireClinker_idle_135.png");
-	public const var SIGNALFireClinkerIdle315 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFireClinker_idle_225.png");
-	public const var SIGNALFireClinkerIdle225 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFireClinker_idle_315.png");
+	Texture SIGNALFireClinkerIdle45 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFireClinker_idle_45.png");
+	Texture SIGNALFireClinkerIdle135 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFireClinker_idle_135.png");
+	Texture SIGNALFireClinkerIdle315 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFireClinker_idle_225.png");
+	Texture SIGNALFireClinkerIdle225 = GD.Load("res://Assets/World/Buildings/SignalFire/Sprites/SignalFireClinker_idle_315.png");
 	
 	// Tier 1 (Sailors) Sprites
 	public static readonly Array SIGNALFireIdleAnim = new Array(){
@@ -72,33 +72,33 @@ public class SignalFire : Building
 	{  
 		switch( action)
 		{
-			{"idle",
+			case "idle":
 				currentAnim = TIERS[tier];
-				self.texture = TIERS[tier][rotationOffset];
+				texture = TIERS[tier][rotationOffset];
 	
 				switch( tier)
 				{
 					case 0:
-						_billboard.vframes = 2;
-						_billboard.hframes = 5;
-						_billboard.region_rect = new Rect2(0}, 0, 320, 256);
-						_billboard.region_enabled = true;
+						_billboard.Vframes = 2;
+						_billboard.Hframes = 5;
+						_billboard.RegionRect = new Rect2(0}, 0, 320, 256);
+						_billboard.RegionEnabled = true;
 						break;
 					case 1:
-						_billboard.vframes = 4;
-						_billboard.hframes = 4;
-						_billboard.region_rect = new Rect2(0, 0, 256, 512);
-						_billboard.region_enabled = true;
+						_billboard.Vframes = 4;
+						_billboard.Hframes = 4;
+						_billboard.RegionRect = new Rect2(0, 0, 256, 512);
+						_billboard.RegionEnabled = true;
 						break;
 					case 2:
-						_billboard.vframes = 4;
-						_billboard.hframes = 4;
-						_billboard.region_rect = new Rect2(0, 0, 256, 512);
-						_billboard.region_enabled = true;
+						_billboard.Vframes = 4;
+						_billboard.Hframes = 4;
+						_billboard.RegionRect = new Rect2(0, 0, 256, 512);
+						_billboard.RegionEnabled = true;
 	
 						break;
 				}
-				_billboard.frame = NextFrame();
+				_billboard.Frame = NextFrame();
 	
 		}
 	}

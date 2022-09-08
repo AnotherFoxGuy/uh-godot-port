@@ -15,16 +15,16 @@ public class Warehouse : Building
 	public const string WAREHOUSEStone = "res://Assets/World/Buildings/Warehouse/Warehouse.tscn";
 	
 	// Tier 1 (Sailors) Resources
-	public const var WAREHOUSEIdle = GD.Load("res://Assets/World/Buildings/Warehouse/Sprites/Warehouse_idle.png");
+	Texture WAREHOUSEIdle = GD.Load("res://Assets/World/Buildings/Warehouse/Sprites/Warehouse_idle.png");
 	
 	// Tier 2 (Pioneers) Resources
-	public const var WAREHOUSEWoodenIdle = GD.Load("res://Assets/World/Buildings/Warehouse/Sprites/WarehouseWooden_idle.png");
+	Texture WAREHOUSEWoodenIdle = GD.Load("res://Assets/World/Buildings/Warehouse/Sprites/WarehouseWooden_idle.png");
 	
 	// Tier 3 (Settlers) Resources
-	public const var WAREHOUSETimberFramedIdle = GD.Load("res://Assets/World/Buildings/Warehouse/Sprites/WarehouseTimberFramed_idle.png");
+	Texture WAREHOUSETimberFramedIdle = GD.Load("res://Assets/World/Buildings/Warehouse/Sprites/WarehouseTimberFramed_idle.png");
 	
 	// Tier 4 (Citizens) Resources
-	public const var WAREHOUSEStoneIdle = GD.Load("res://Assets/World/Buildings/Warehouse/Sprites/WarehouseStone_idle.png");
+	Texture WAREHOUSEStoneIdle = GD.Load("res://Assets/World/Buildings/Warehouse/Sprites/WarehouseStone_idle.png");
 	
 	// Tier 1 (Sailors) Sprites
 	// Tier 2 (Pioneers) Sprites
@@ -44,23 +44,23 @@ public class Warehouse : Building
 	{  
 		switch( action)
 		{
-			{"idle",
+			case "idle":
 				currentAnim = null;
-				self.texture = TIERS[tier];
+				texture = TIERS[tier];
 				switch( tier)
 				{
 					case 0:
-						_billboard.vframes = 2;
-						_billboard.hframes = 2;
-						_billboard.region_rect = new Rect2(0}, 0, 384, 256);
-						_billboard.region_enabled = true;
+						_billboard.Vframes = 2;
+						_billboard.Hframes = 2;
+						_billboard.RegionRect = new Rect2(0}, 0, 384, 256);
+						_billboard.RegionEnabled = true;
 						_billboard.offset = new Vector2(0, 10);
 						break;
 					case 1, 2, 3:
-						_billboard.vframes = 2;
-						_billboard.hframes = 2;
-						_billboard.region_rect = new Rect2(0, 0, 384, 384);
-						_billboard.region_enabled = true;
+						_billboard.Vframes = 2;
+						_billboard.Hframes = 2;
+						_billboard.RegionRect = new Rect2(0, 0, 384, 384);
+						_billboard.RegionEnabled = true;
 						_billboard.offset = new Vector2(0, 40);
 	
 						break;

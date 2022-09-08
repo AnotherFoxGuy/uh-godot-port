@@ -52,7 +52,7 @@ public class CattleRun : Building
             case "work":
                 // set new animation set && randomize frame for the initial time},
                 // afterwards only iterate through frames
-                if (currentAnim != null  || currentAnim == null) // && currentAnim[0].GetLoadPath().Find("_work") == -1
+                if (currentAnim != null && currentAnim[0].ResourcePath.Find("_work") == -1 || currentAnim == null)
                 {
                     currentAnim = CATTLERunWorkAnim;
                     texture = CATTLERunWorkAnim[rotationIndex];
@@ -62,7 +62,7 @@ public class CattleRun : Building
                     _billboard.RegionEnabled = true;
 
                     _billboard.Frame = GetRandomFrame();
-                    //prints(self.name, "randomized frame:", _billboard.frame)
+                    //prints(self.name, "randomized frame:", _billboard.Frame)
                 }
                 else
                 {

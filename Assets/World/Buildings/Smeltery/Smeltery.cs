@@ -8,9 +8,9 @@ using Array = Godot.Collections.Array;
 public class Smeltery : Building
 {
 	 
-	public const var SMELTERYIdle = GD.Load("res://Assets/World/Buildings/Smeltery/Sprites/Smeltery_idle.png");
+	Texture SMELTERYIdle = GD.Load("res://Assets/World/Buildings/Smeltery/Sprites/Smeltery_idle.png");
 	
-	public const var SMELTERYWorkAnim = GD.Load("res://Assets/World/Buildings/Smeltery/Sprites/Smeltery_work.png");
+	Texture SMELTERYWorkAnim = GD.Load("res://Assets/World/Buildings/Smeltery/Sprites/Smeltery_work.png");
 	public static readonly Array SMELTERYWorkAnimRegionY = new Array(){
 		155*0, 155*1, 155*2, 155*3
 	};
@@ -19,23 +19,23 @@ public class Smeltery : Building
 	{  
 		switch( action)
 		{
-			{"idle",
+			case "idle":
 				currentAnim = null;
-				self.texture = SMELTERYIdle;
-				_billboard.vframes = 2;
-				_billboard.hframes = 2;
-				_billboard.region_rect = new Rect2(0}, 0, 512, 310);
-				_billboard.region_enabled = true
+				texture = SMELTERYIdle;
+				_billboard.Vframes = 2;
+				_billboard.Hframes = 2;
+				_billboard.RegionRect = new Rect2(0}, 0, 512, 310);
+				_billboard.RegionEnabled = true
 	
-			{"work",
+			case "work":
 				currentAnim = SMELTERYWorkAnim;
-				self.texture = SMELTERYWorkAnim;
-				_billboard.vframes = 1;
-				_billboard.hframes = 6;
-				_billboard.region_rect = new Rect2(0}, SMELTERYWorkAnimRegionY[self.rotation_index], 1536, 155);
-				_billboard.region_enabled = true;
+				texture = SMELTERYWorkAnim;
+				_billboard.Vframes = 1;
+				_billboard.Hframes = 6;
+				_billboard.RegionRect = new Rect2(0}, SMELTERYWorkAnimRegionY[rotationIndex], 1536, 155);
+				_billboard.RegionEnabled = true;
 	
-				_billboard.frame = NextFrame();
+				_billboard.Frame = NextFrame();
 	
 		}
 		base.Animate()

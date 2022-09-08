@@ -17,7 +17,7 @@ public class Huker : Ship
 			factionColor.modulate = Global.FACTION_COLORS[faction];
 	
 			// Match rotation of the ship's color outline with the main texture rotation
-			factionColor.frame = _billboard.frame;
+			factionColor.frame = _billboard.Frame;
 	
 	
 		}

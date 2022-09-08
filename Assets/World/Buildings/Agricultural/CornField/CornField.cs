@@ -1,57 +1,67 @@
-
 using System;
 using Godot;
+using Godot.Collections;
 using Dictionary = Godot.Collections.Dictionary;
 using Array = Godot.Collections.Array;
 
 [Tool]
 public class CornField : Building
 {
-	 
-	public const var CORNFieldIdle = GD.Load("res://Assets/World/Buildings/Agricultural/CornField/Sprites/CornField_idle.png");
-	public const var CORNFieldIdleFull = GD.Load("res://Assets/World/Buildings/Agricultural/CornField/Sprites/CornField_idle_full.png");
-	
-	public const var CORNFieldWorkAnim = GD.Load("res://Assets/World/Buildings/Agricultural/CornField/Sprites/CornField_work_anim.png");
-	public static readonly Array CORNFieldWorkAnimRegionY = new Array(){
-		192*0, 192*1, 192*2, 192*3
-	};
-	
-	public void Animate()
-	{  
-		switch( action)
-		{
-			{"idle",
-				currentAnim = null;
-				self.texture = CORNFieldIdle;
-				_billboard.vframes = 2;
-				_billboard.hframes = 2;
-				_billboard.region_rect = new Rect2(0}, 0, 384, 384);
-				_billboard.region_enabled = true
-	
-			{"idle_full",
-				currentAnim = null;
-				self.texture = CORNFieldIdleFull;
-				_billboard.vframes = 2;
-				_billboard.hframes = 2;
-				_billboard.region_rect = new Rect2(0}, 0, 384, 384);
-				_billboard.region_enabled = true
-	
-			{"work",
-					currentAnim = CORNFieldWorkAnim;
-					self.texture = CORNFieldWorkAnim;
-					_billboard.vframes = 1;
-					_billboard.hframes = 4;
-					_billboard.region_rect = new Rect2(0}, CORNFieldWorkAnimRegionY[self.rotation_index], 768, 192);
-					_billboard.region_enabled = true;
-	
-					_billboard.frame = NextFrame();
-	
-		}
-		base.Animate()
-	
-	
-	}
-	
-	
-	
+    private Texture CORNFieldIdle;
+    private Texture CORNFieldIdleFull;
+
+    private Array<Texture> CORNFieldWorkAnim;
+
+    public static readonly Array<float> CORNFieldWorkAnimRegionY = new Array<float>()
+    {
+        192 * 0, 192 * 1, 192 * 2, 192 * 3
+    };
+    
+    public new void _Ready()
+    {
+        CORNFieldIdle =
+            GD.Load("res://Assets/World/Buildings/Agricultural/CornField/Sprites/CornField_idle.png") as Texture;
+        CORNFieldIdleFull =
+            GD.Load("res://Assets/World/Buildings/Agricultural/CornField/Sprites/CornField_idle_full.png") as Texture;
+
+        CORNFieldWorkAnim = new Array<Texture>()
+        {
+            GD.Load("res://Assets/World/Buildings/Agricultural/CornField/Sprites/CornField_work_anim.png") as Texture
+        };
+    }
+
+    public void Animate()
+    {
+        switch (action)
+        {
+            case "idle":
+                currentAnim = null;
+                texture = CORNFieldIdle;
+                _billboard.Vframes = 2;
+                _billboard.Hframes = 2;
+                _billboard.RegionRect = new Rect2(0, 0, 384, 384);
+                _billboard.RegionEnabled = true;
+                break;
+            case "idle_full":
+                currentAnim = null;
+                texture = CORNFieldIdleFull;
+                _billboard.Vframes = 2;
+                _billboard.Hframes = 2;
+                _billboard.RegionRect = new Rect2(0, 0, 384, 384);
+                _billboard.RegionEnabled = true;
+                break;
+            case "work":
+                currentAnim = CORNFieldWorkAnim;
+                texture = CORNFieldWorkAnim[0];
+                _billboard.Vframes = 1;
+                _billboard.Hframes = 4;
+                _billboard.RegionRect = new Rect2(0, CORNFieldWorkAnimRegionY[rotationIndex], 768, 192);
+                _billboard.RegionEnabled = true;
+
+                _billboard.Frame = NextFrame();
+                break;
+        }
+
+        base.Animate();
+    }
 }

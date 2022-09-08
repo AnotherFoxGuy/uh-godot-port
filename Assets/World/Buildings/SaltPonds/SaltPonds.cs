@@ -8,10 +8,10 @@ using Array = Godot.Collections.Array;
 public class SaltPonds : Building
 {
 	 
-	public const var SALTPondIdle = GD.Load("res://Assets/World/Buildings/SaltPonds/Sprites/SaltPond_idle.png");
-	public const var SALTPondIdleFull = GD.Load("res://Assets/World/Buildings/SaltPonds/Sprites/SaltPond_idle_full.png");
+	Texture SALTPondIdle = GD.Load("res://Assets/World/Buildings/SaltPonds/Sprites/SaltPond_idle.png");
+	Texture SALTPondIdleFull = GD.Load("res://Assets/World/Buildings/SaltPonds/Sprites/SaltPond_idle_full.png");
 	
-	public const var SALTPondWorkAnim = GD.Load("res://Assets/World/Buildings/SaltPonds/Sprites/SaltPond_work_anim.png");
+	Texture SALTPondWorkAnim = GD.Load("res://Assets/World/Buildings/SaltPonds/Sprites/SaltPond_work_anim.png");
 	public static readonly Array SALTPondWorkAnimRegionY = new Array(){
 		32, 224, 416, 608
 	};
@@ -20,31 +20,31 @@ public class SaltPonds : Building
 	{  
 		switch( action)
 		{
-			{"idle",
+			case "idle":
 				currentAnim = null;
-				self.texture = SALTPondIdle;
-				_billboard.vframes = 2;
-				_billboard.hframes = 2;
-				_billboard.region_rect = new Rect2(0}, 0, 384, 256);
-				_billboard.region_enabled = true
+				texture = SALTPondIdle;
+				_billboard.Vframes = 2;
+				_billboard.Hframes = 2;
+				_billboard.RegionRect = new Rect2(0}, 0, 384, 256);
+				_billboard.RegionEnabled = true
 	
-			{"idle_full",
+			case "idle_full":
 				currentAnim = null;
-				self.texture = SALTPondIdleFull;
-				_billboard.vframes = 2;
-				_billboard.hframes = 2;
-				_billboard.region_rect = new Rect2(0}, 0, 384, 256);
-				_billboard.region_enabled = true
+				texture = SALTPondIdleFull;
+				_billboard.Vframes = 2;
+				_billboard.Hframes = 2;
+				_billboard.RegionRect = new Rect2(0}, 0, 384, 256);
+				_billboard.RegionEnabled = true
 	
-			{"work",
+			case "work":
 				currentAnim = SALTPondWorkAnim;
-				self.texture = SALTPondWorkAnim;
-				_billboard.vframes = 1;
-				_billboard.hframes = 6;
-				_billboard.region_rect = new Rect2(0}, SALTPondWorkAnimRegionY[self.rotation_index], 1152, 192);
-				_billboard.region_enabled = true;
+				texture = SALTPondWorkAnim;
+				_billboard.Vframes = 1;
+				_billboard.Hframes = 6;
+				_billboard.RegionRect = new Rect2(0}, SALTPondWorkAnimRegionY[rotationIndex], 1152, 192);
+				_billboard.RegionEnabled = true;
 	
-				_billboard.frame = NextFrame();
+				_billboard.Frame = NextFrame();
 	
 		}
 		base.Animate()

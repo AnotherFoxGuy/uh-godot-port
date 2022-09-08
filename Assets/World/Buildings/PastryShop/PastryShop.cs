@@ -8,12 +8,12 @@ using Array = Godot.Collections.Array;
 public class PastryShop : Building
 {
 	 
-	public const var PASTRYShopIdle = GD.Load("res://Assets/World/Buildings/PastryShop/Sprites/PastryShop_idle.png");
+	Texture PASTRYShopIdle = GD.Load("res://Assets/World/Buildings/PastryShop/Sprites/PastryShop_idle.png");
 	
-	public const var PASTRYShopWork45 = GD.Load("res://Assets/World/Buildings/PastryShop/Sprites/PastryShop_work_45.png");
-	public const var PASTRYShopWork135 = GD.Load("res://Assets/World/Buildings/PastryShop/Sprites/PastryShop_work_135.png");
-	public const var PASTRYShopWork225 = GD.Load("res://Assets/World/Buildings/PastryShop/Sprites/PastryShop_work_225.png");
-	public const var PASTRYShopWork315 = GD.Load("res://Assets/World/Buildings/PastryShop/Sprites/PastryShop_work_315.png");
+	Texture PASTRYShopWork45 = GD.Load("res://Assets/World/Buildings/PastryShop/Sprites/PastryShop_work_45.png");
+	Texture PASTRYShopWork135 = GD.Load("res://Assets/World/Buildings/PastryShop/Sprites/PastryShop_work_135.png");
+	Texture PASTRYShopWork225 = GD.Load("res://Assets/World/Buildings/PastryShop/Sprites/PastryShop_work_225.png");
+	Texture PASTRYShopWork315 = GD.Load("res://Assets/World/Buildings/PastryShop/Sprites/PastryShop_work_315.png");
 	
 	public static readonly Array PASTRYShopWorkAnim = new Array(){
 		PASTRYShopWork45,
@@ -26,21 +26,21 @@ public class PastryShop : Building
 	{  
 		switch( action)
 		{
-			{"idle",
+			case "idle":
 				currentAnim = null;
-				self.texture = PASTRYShopIdle;
-				_billboard.vframes = 2;
-				_billboard.hframes = 2;
-				_billboard.region_enabled = false
+				texture = PASTRYShopIdle;
+				_billboard.Vframes = 2;
+				_billboard.Hframes = 2;
+				_billboard.RegionEnabled = false
 	
-			{"work",
+			case "work":
 				currentAnim = PASTRYShopWorkAnim;
-				self.texture = PASTRYShopWorkAnim[self.rotation_index];
-				_billboard.vframes = 4;
-				_billboard.hframes = 4;
-				_billboard.region_enabled = false;
+				texture = PASTRYShopWorkAnim[rotationIndex];
+				_billboard.Vframes = 4;
+				_billboard.Hframes = 4;
+				_billboard.RegionEnabled = false;
 	
-				_billboard.frame = NextFrame();
+				_billboard.Frame = NextFrame();
 	
 		}
 		base.Animate()

@@ -25,8 +25,8 @@ public class Ship : Unit
 	{  
 		AddToGroup("units");
 		// DEBUG
-		$Billboard.vframes = 2;
-		$Billboard.hframes = 4;
+		$Billboard.Vframes = 2;
+		$Billboard.Hframes = 4;
 	
 	}
 	

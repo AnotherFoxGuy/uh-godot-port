@@ -8,13 +8,13 @@ using Array = Godot.Collections.Array;
 public class Windmill : Building
 {
 	 
-	public const var WINDMILLIdle = GD.Load("res://Assets/World/Buildings/Windmill/Sprites/Windmill_idle.png");
-	public const var WINDMILLIdleFull = GD.Load("res://Assets/World/Buildings/Windmill/Sprites/Windmill_idle_full.png");
+	Texture WINDMILLIdle = GD.Load("res://Assets/World/Buildings/Windmill/Sprites/Windmill_idle.png");
+	Texture WINDMILLIdleFull = GD.Load("res://Assets/World/Buildings/Windmill/Sprites/Windmill_idle_full.png");
 	
-	public const var WINDMILLWork45 = GD.Load("res://Assets/World/Buildings/Windmill/Sprites/Windmill_work_45.png");
-	public const var WINDMILLWork135 = GD.Load("res://Assets/World/Buildings/Windmill/Sprites/Windmill_work_135.png");
-	public const var WINDMILLWork225 = GD.Load("res://Assets/World/Buildings/Windmill/Sprites/Windmill_work_225.png");
-	public const var WINDMILLWork315 = GD.Load("res://Assets/World/Buildings/Windmill/Sprites/Windmill_work_315.png");
+	Texture WINDMILLWork45 = GD.Load("res://Assets/World/Buildings/Windmill/Sprites/Windmill_work_45.png");
+	Texture WINDMILLWork135 = GD.Load("res://Assets/World/Buildings/Windmill/Sprites/Windmill_work_135.png");
+	Texture WINDMILLWork225 = GD.Load("res://Assets/World/Buildings/Windmill/Sprites/Windmill_work_225.png");
+	Texture WINDMILLWork315 = GD.Load("res://Assets/World/Buildings/Windmill/Sprites/Windmill_work_315.png");
 	
 	public static readonly Array WINDMILLWorkAnim = new Array(){
 		WINDMILLWork45,
@@ -27,37 +27,37 @@ public class Windmill : Building
 	{  
 		switch( action)
 		{
-			{"idle",
+			case "idle":
 				currentAnim = null;
-				self.texture = WINDMILLIdle;
-				_billboard.vframes = 2;
-				_billboard.hframes = 2;
-				_billboard.region_rect = new Rect2(0}, 0, 256, 256)
+				texture = WINDMILLIdle;
+				_billboard.Vframes = 2;
+				_billboard.Hframes = 2;
+				_billboard.RegionRect = new Rect2(0}, 0, 256, 256)
 	
-			{"idle_full",
+			case "idle_full":
 				currentAnim = null;
-				self.texture = WINDMILLIdleFull;
-				_billboard.vframes = 2;
-				_billboard.hframes = 2;
-				_billboard.region_rect = new Rect2(0}, 0, 256, 256)
+				texture = WINDMILLIdleFull;
+				_billboard.Vframes = 2;
+				_billboard.Hframes = 2;
+				_billboard.RegionRect = new Rect2(0}, 0, 256, 256)
 	
-			{"work",
+			case "work":
 				// set new animation set && randomize frame for the initial time},
 				// afterwards only iterate through frames
 				if(currentAnim != null && currentAnim[0].GetLoadPath().Find("_work") == -1 || currentAnim == null)
 				{
 					currentAnim = WINDMILLWorkAnim;
-					self.texture = WINDMILLWorkAnim[self.rotation_index];
-					_billboard.vframes = 5;
-					_billboard.hframes = 6;
-					_billboard.region_rect = new Rect2(0, 0, 768, 640);
+					texture = WINDMILLWorkAnim[rotationIndex];
+					_billboard.Vframes = 5;
+					_billboard.Hframes = 6;
+					_billboard.RegionRect = new Rect2(0, 0, 768, 640);
 	
-					_billboard.frame = GetRandomFrame();
-					//prints(self.name, "randomized frame:", _billboard.frame)
+					_billboard.Frame = GetRandomFrame();
+					//prints(self.name, "randomized frame:", _billboard.Frame)
 				}
 				else
 				{
-					_billboard.frame = NextFrame();
+					_billboard.Frame = NextFrame();
 	
 				}
 		}

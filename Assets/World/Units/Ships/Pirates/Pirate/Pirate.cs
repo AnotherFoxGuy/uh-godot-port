@@ -101,13 +101,13 @@ public class Pirate : Ship
 	{  
 		if(isMoving || debugIsMoving)
 		{
-			_billboard.vframes = 4;
-			_billboard.hframes = 4;
-			_billboard.region_rect = new Rect2(0, 0, 896, 896);
+			_billboard.Vframes = 4;
+			_billboard.Hframes = 4;
+			_billboard.RegionRect = new Rect2(0, 0, 896, 896);
 	
-			_reflection.vframes = 4;
-			_reflection.hframes = 4;
-			_reflection.region_rect = new Rect2(0, 0, 896, 896);
+			_reflection.Vframes = 4;
+			_reflection.Hframes = 4;
+			_reflection.RegionRect = new Rect2(0, 0, 896, 896);
 			UpdateRotation();
 	
 			// For editor preview
@@ -116,10 +116,10 @@ public class Pirate : Ship
 				rotationIndex = rotationDegree;
 	
 			}
-			self.texture = PIRATEMoveAnim[rotationIndex];
+			texture = PIRATEMoveAnim[rotationIndex];
 			_reflection.texture = PIRATEMoveAnim[rotationIndex];
 	
-			_billboard.frame = NextFrame();
+			_billboard.Frame = NextFrame();
 	
 			if(rotationIndex == 1)
 			{
@@ -137,16 +137,16 @@ public class Pirate : Ship
 		}
 		else
 		{
-			_billboard.vframes = 2;
-			_billboard.hframes = 4;
-			_billboard.region_rect = new Rect2(0, 0, 896, 448);
+			_billboard.Vframes = 2;
+			_billboard.Hframes = 4;
+			_billboard.RegionRect = new Rect2(0, 0, 896, 448);
 	
-			_reflection.region_rect = new Rect2(0, 0, 896, 448);
-			_reflection.vframes = 2;
-			_reflection.hframes = 4;
+			_reflection.RegionRect = new Rect2(0, 0, 896, 448);
+			_reflection.Vframes = 2;
+			_reflection.Hframes = 4;
 			.UpdateRotation()
 	
-			self.texture = PIRATEIdleAnim;
+			texture = PIRATEIdleAnim;
 			_reflection.texture = PIRATEIdleAnim;
 	
 			// For editor preview
@@ -155,7 +155,7 @@ public class Pirate : Ship
 				rotationIndex = rotationDegree;
 	
 			}
-			SetRotationDegree(Mathf.Wrap(rotationIndex, 0, _billboard.hframes * _billboard.vframes));
+			SetRotationDegree(Mathf.Wrap(rotationIndex, 0, _billboard.Hframes * _billboard.Vframes));
 	
 			if(rotationIndex == 1)
 			{
@@ -175,7 +175,7 @@ public class Pirate : Ship
 				_reflection.offset = new Vector2(0, -90);
 				//_reflection.rotation_degrees = new Vector3(0, -45, 0);
 			}
-			_reflection.frame = (Mathf.Wrap(rotationIndex, 0, _billboard.hframes * _billboard.vframes));
+			_reflection.frame = (Mathf.Wrap(rotationIndex, 0, _billboard.Hframes * _billboard.Vframes));
 	
 	// TODO: WaterOverlay fading transition effect
 		}
@@ -190,8 +190,8 @@ public class Pirate : Ship
 		}
 		if(isMoving || debugIsMoving)
 		{
-			waterOverlay1.frame = Mathf.Wrap(waterOverlay1.frame + 1, 0, waterOverlay1.vframes * waterOverlay1.hframes);
-			waterOverlay2.frame = Mathf.Wrap(waterOverlay2.frame + 1, 0, waterOverlay2.vframes * waterOverlay2.hframes);
+			waterOverlay1.frame = Mathf.Wrap(waterOverlay1.frame + 1, 0, waterOverlay1.Vframes * waterOverlay1.Hframes);
+			waterOverlay2.frame = Mathf.Wrap(waterOverlay2.frame + 1, 0, waterOverlay2.Vframes * waterOverlay2.Hframes);
 	
 			switch( rotationDegree)
 			{

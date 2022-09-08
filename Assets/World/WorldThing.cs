@@ -219,9 +219,9 @@ public class WorldThing : Spatial
 
             //match newStep:
             //	RotationStep.FOURTY_FIVE:
-            //		_billboard.hframes = 4;
+            //		_billboard.Hframes = 4;
             //	RotationStep.NINETY:
-            //		_billboard.hframes = 2;
+            //		_billboard.Hframes = 2;
         }
     }
 
@@ -300,7 +300,7 @@ public class WorldThing : Spatial
 
             // Sync frames
             //prints("_outline:", _outline, "_billboard:", _billboard)
-            //prints("_outline.frame:", _outline.frame, "_billboard.frame:", _billboard.frame)
+            //prints("_outline.frame:", _outline.frame, "_billboard.Frame:", _billboard.Frame)
         }
 
         _outline.Frame = _billboard.Frame;

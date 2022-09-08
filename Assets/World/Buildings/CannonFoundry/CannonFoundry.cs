@@ -1,64 +1,63 @@
-
 using System;
 using Godot;
+using Godot.Collections;
 using Dictionary = Godot.Collections.Dictionary;
 using Array = Godot.Collections.Array;
 
 [Tool]
 public class CannonFoundry : Building
 {
-	 
-	public const var CANNONFoundryIdle = GD.Load("res://Assets/World/Buildings/CannonFoundry/Sprites/CannonFoundry_idle.png");
-	public const var CANNONFoundryIdleFull = GD.Load("res://Assets/World/Buildings/CannonFoundry/Sprites/CannonFoundry_idle_full.png");
-	
-	public const var CANNONFoundryWork45 = GD.Load("res://Assets/World/Buildings/CannonFoundry/Sprites/CannonFoundry_work_45.png");
-	public const var CANNONFoundryWork135 = GD.Load("res://Assets/World/Buildings/CannonFoundry/Sprites/CannonFoundry_work_135.png");
-	public const var CANNONFoundryWork225 = GD.Load("res://Assets/World/Buildings/CannonFoundry/Sprites/CannonFoundry_work_225.png");
-	public const var CANNONFoundryWork315 = GD.Load("res://Assets/World/Buildings/CannonFoundry/Sprites/CannonFoundry_work_315.png");
-	
-	public static readonly Array CANNONFoundryWorkAnim = new Array(){
-		CANNONFoundryWork45,
-		CANNONFoundryWork135,
-		CANNONFoundryWork225,
-		CANNONFoundryWork315,
-	};
-	
-	public void Animate()
-	{  
-		switch( action)
-		{
-			{"idle",
-				currentAnim = null;
-				self.texture = CANNONFoundryIdle;
-				_billboard.vframes = 2;
-				_billboard.hframes = 2;
-				_billboard.region_rect = new Rect2(0}, 0, 384, 384);
-				_billboard.region_enabled = true
-	
-			{"idle_full",
-				currentAnim = null;
-				self.texture = CANNONFoundryIdleFull;
-				_billboard.vframes = 2;
-				_billboard.hframes = 2;
-				_billboard.region_rect = new Rect2(0}, 0, 384, 384);
-				_billboard.region_enabled = true
-	
-			{"work",
-				currentAnim = CANNONFoundryWorkAnim;
-				self.texture = CANNONFoundryWorkAnim[self.rotation_index];
-				_billboard.vframes = 7;
-				_billboard.hframes = 20;
-				_billboard.region_rect = new Rect2(0}, 0, 3840, 1344);
-				_billboard.region_enabled = true;
-	
-				_billboard.frame = NextFrame();
-	
-		}
-		base.Animate()
-	
-	
-	}
-	
-	
-	
+    private Texture CANNONFoundryIdle;
+    private Texture CANNONFoundryIdleFull;
+    public static Array<Texture> CANNONFoundryWorkAnim;
+
+    public new void _Ready()
+    {
+        CANNONFoundryIdle =
+            GD.Load("res://Assets/World/Buildings/CannonFoundry/Sprites/CannonFoundry_idle.png") as Texture;
+        CANNONFoundryIdleFull =
+            GD.Load("res://Assets/World/Buildings/CannonFoundry/Sprites/CannonFoundry_idle_full.png") as Texture;
+        CANNONFoundryWorkAnim = new Array<Texture>()
+        {
+            GD.Load("res://Assets/World/Buildings/CannonFoundry/Sprites/CannonFoundry_work_45.png") as Texture,
+            GD.Load("res://Assets/World/Buildings/CannonFoundry/Sprites/CannonFoundry_work_135.png") as Texture,
+            GD.Load("res://Assets/World/Buildings/CannonFoundry/Sprites/CannonFoundry_work_225.png") as Texture,
+            GD.Load("res://Assets/World/Buildings/CannonFoundry/Sprites/CannonFoundry_work_315.png") as Texture,
+        };
+    }
+
+    public void Animate()
+    {
+        switch (action)
+        {
+            case "idle":
+                currentAnim = null;
+                texture = CANNONFoundryIdle;
+                _billboard.Vframes = 2;
+                _billboard.Hframes = 2;
+                _billboard.RegionRect = new Rect2(0, 0, 384, 384);
+                _billboard.RegionEnabled = true;
+                break;
+            case "idle_full":
+                currentAnim = null;
+                texture = CANNONFoundryIdleFull;
+                _billboard.Vframes = 2;
+                _billboard.Hframes = 2;
+                _billboard.RegionRect = new Rect2(0, 0, 384, 384);
+                _billboard.RegionEnabled = true;
+                break;
+            case "work":
+                currentAnim = CANNONFoundryWorkAnim;
+                texture = CANNONFoundryWorkAnim[rotationIndex];
+                _billboard.Vframes = 7;
+                _billboard.Hframes = 20;
+                _billboard.RegionRect = new Rect2(0, 0, 3840, 1344);
+                _billboard.RegionEnabled = true;
+
+                _billboard.Frame = NextFrame();
+                break;
+        }
+
+        base.Animate();
+    }
 }
