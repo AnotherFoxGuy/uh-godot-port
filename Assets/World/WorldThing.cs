@@ -34,7 +34,7 @@ public class WorldThing : Spatial
     }
 
     [Export]
-    private Texture texture
+    internal Texture texture
     {
         set => SetTexture(value);
         get => _texture;

@@ -61,7 +61,7 @@ public class Unit : WorldThing
 	public Buoy buoy = null;
 
 	private Spatial rotationY;
-	private Spatial _asMap;
+	private AStarMap _asMap;
 	private Spatial world;
 	
 	public bool isMoving = false;
@@ -103,9 +103,9 @@ public class Unit : WorldThing
 	
 	public void MoveTo(Vector2 targetPos)
 	{  
-		path = _asMap.GetTilemapPath(UUtils.Map3To2(GlobalTransform.origin), targetPos);
+		path = _asMap.GetTilemapPath(Utils.Map3To2(GlobalTransform.origin), targetPos);
 		pathIndex = 0;
-		if(faction == world.player.faction && !path.Empty())
+		if(faction == world.player.faction && path.Count == 0)
 		{
 			// Only show when the unit actually moves
 			if(path.Count > 2)

@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Godot;
+using Godot.Collections;
 using Dictionary = Godot.Collections.Dictionary;
 using Array = Godot.Collections.Array;
 
@@ -108,7 +109,7 @@ public class AStarMap : Spatial
         return GD.Str((int)(v2.x)) + "," + GD.Str((int)(v2.y));
     }
 
-    public Vector2[] GetTilemapPath(Vector2 start, Vector2 end)
+    public Array<Vector2> GetTilemapPath(Vector2 start, Vector2 end)
     {
         //print_debug(start, end)
         var gmStart = V2ToIndex(gridMap.WorldToTilemap(start));
