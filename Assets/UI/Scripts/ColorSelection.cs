@@ -8,18 +8,21 @@ using Array = Godot.Collections.Array;
 public class ColorSelection : HBoxContainer
 {
 	 
-	onready var selectedColor  = $TextureRect/SelectedColor
-	onready var choices  = $Choices
+	// onready var selectedColor  = $TextureRect/SelectedColor
+	private Color selectedColor;
+	// onready var choices  = $Choices
+
+	private Spatial choices;
 	
 	public void _Ready()
 	{  
-		foreach(var choice in choices.GetChildren())
+		foreach(Node choice in choices.GetChildren())
 		{
 			choice.Connect("gui_input", this, "_on_choice_gui_input", new Array(){choice});
 	
 			if(choice.color_to_faction == Global.faction)
 			{
-				selectedColor.color = choice.color;
+				selectedColor.Color = choice.Color;
 	
 			}
 		}

@@ -13,7 +13,7 @@ public class QuitGame : Button
 		// Go back to the main menu.
 		//warning-ignore:returnValueDiscarded
 		GetTree().ChangeSceneTo(
-				GD.Load("res://Assets/UI/Scenes/MainMenuScene.tscn"));
+				GD.Load<PackedScene>("res://Assets/UI/Scenes/MainMenuScene.tscn"));
 	
 	
 	}

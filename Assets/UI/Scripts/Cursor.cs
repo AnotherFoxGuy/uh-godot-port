@@ -1,57 +1,51 @@
-
 using System;
 using Godot;
+using Godot.Collections;
 using Dictionary = Godot.Collections.Dictionary;
 using Array = Godot.Collections.Array;
 
 
 public class Cursor : Node
 {
-	 
-	enum CursorType {
-		CURSORDefault,
-		CURSORAttack,
-		CURSORPipette,
-		CURSORRename,
-		CURSORTear,
-	}
-	
-	public const var CURSORDefault = GD.Load("res://Assets/UI/Images/Cursors/cursor.png");
-	public const var CURSORAttack = GD.Load("res://Assets/UI/Images/Cursors/cursor_attack.png");
-	public const var CURSORPipette = GD.Load("res://Assets/UI/Images/Cursors/cursor_pipette.png");
-	public const var CURSORRename = GD.Load("res://Assets/UI/Images/Cursors/cursor_rename.png");
-	public const var CURSORTear = GD.Load("res://Assets/UI/Images/Cursors/cursor_tear.png");
-	
-	public Dictionary cursors = new Dictionary(){
-		CursorType.CURSOR_DEFAULT: CURSORDefault,
-		CursorType.CURSOR_ATTACK: CURSORAttack,
-		CursorType.CURSOR_PIPETTE: CURSORPipette,
-		CursorType.CURSOR_RENAME: CURSORRename,
-		CursorType.CURSOR_TEAR: CURSORTear
-	};
-	
-	public int cursor = CursorType.CURSOR_DEFAULT {get{return GetCursor();} set{SetCursor(value);}}
-	
-	public void _Ready()
-	{  
-		self.cursor = CursorType.CURSOR_DEFAULT;
-	
-	}
-	
-	public void SetCursor(int newCursor)
-	{  
-		cursor = newCursor;
-		Input.SetCustomMouseCursor(cursors[cursor]);
-	
-	}
-	
-	public int GetCursor()
-	{  
-		return cursor;
-	
-	
-	}
-	
-	
-	
+    public enum CursorType
+    {
+        CURSORDefault,
+        CURSORAttack,
+        CURSORPipette,
+        CURSORRename,
+        CURSORTear,
+    }
+
+    public Dictionary<CursorType, Texture> cursors = new Dictionary<CursorType, Texture>()
+    {
+        { CursorType.CURSORDefault, GD.Load<Texture>("res://Assets/UI/Images/Cursors/cursor.png") },
+        { CursorType.CURSORAttack, GD.Load<Texture>("res://Assets/UI/Images/Cursors/cursor_attack.png") },
+        { CursorType.CURSORPipette, GD.Load<Texture>("res://Assets/UI/Images/Cursors/cursor_pipette.png") },
+        { CursorType.CURSORRename, GD.Load<Texture>("res://Assets/UI/Images/Cursors/cursor_rename.png") },
+        { CursorType.CURSORTear, GD.Load<Texture>("res://Assets/UI/Images/Cursors/cursor_tear.png") }
+    };
+
+    public CursorType cursor
+    {
+        get { return GetCursor(); }
+        set { SetCursor(value); }
+    }
+
+    private CursorType _cursor;
+
+    public void _Ready()
+    {
+        cursor = CursorType.CURSORDefault;
+    }
+
+    public void SetCursor(CursorType newCursor)
+    {
+        _cursor = newCursor;
+        Input.SetCustomMouseCursor(cursors[_cursor]);
+    }
+
+    public CursorType GetCursor()
+    {
+        return _cursor;
+    }
 }

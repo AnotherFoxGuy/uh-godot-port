@@ -4,7 +4,7 @@ using Dictionary = Godot.Collections.Dictionary;
 using Array = Godot.Collections.Array;
 
 
-public class CCheckBox : CheckBox
+public class uCheckBox : CheckBox
 {
     public void _OnCheckBoxToggled(bool _buttonPressed)
     {
