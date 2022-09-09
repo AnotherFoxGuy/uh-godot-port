@@ -36,6 +36,8 @@ public class CheckBoxEx : HBoxContainer
 
     public void _Ready()
     {
+        descriptionNode = GetNode<LabelEx>("LabelEx");
+        checkBoxNode = GetNode<CheckBox>("CheckBox");
         //	guiInput.rect_size = rectSize;
     }
 

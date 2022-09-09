@@ -34,7 +34,7 @@ public class CityInfo : HBoxContainer
 	private bool _debugCycleFactions;
 	
 	// onready var factionSettlement  = $SettlementName/FactionSettlement
-	private Spatial factionSettlement;
+	private TextureRect factionSettlement;
 	// onready var animationPlayer  = $AnimationPlayer
 	private AnimationPlayer animationPlayer;
 
@@ -42,6 +42,9 @@ public class CityInfo : HBoxContainer
 	
 	public void _Ready()
 	{
+		factionSettlement = GetNode<TextureRect>("SettlementName/FactionSettlement");
+		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		
 		if(!Engine.IsEditorHint())
 		{
 			Visible = false;
@@ -55,7 +58,7 @@ public class CityInfo : HBoxContainer
 			await ToSignal(this, "ready");
 	
 		_faction = newFaction;
-		factionSettlement.Texture = FACTIONSettlement[_faction];
+		factionSettlement.Texture = FACTIONSettlement[(int)_faction];
 	
 		PropertyListChangedNotify();
 	

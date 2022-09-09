@@ -40,6 +40,8 @@ public class BookMenu : CenterContainer
 
     public void _Ready()
     {
+        pages = GetNode<TabContainer>("Pages");
+        
         Spatial pageControl;
         foreach (Spatial page in pages.GetChildren())
         {

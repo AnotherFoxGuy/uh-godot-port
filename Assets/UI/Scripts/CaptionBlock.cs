@@ -7,7 +7,7 @@ using Array = Godot.Collections.Array;
 public class CaptionBlock : VBoxContainer
 {
     [Export]
-    private string text
+    internal string text
     {
         set => SetText(value);
         get => _text;
@@ -16,6 +16,12 @@ public class CaptionBlock : VBoxContainer
     private string _text = "This is a Book Title";
 
     //onready var caption  = $Caption
+    private Label caption;
+    
+    public void _Ready()
+    {
+        caption = GetNode<Label>("Caption");
+    }
 
     public async void SetText(String newText)
     {
@@ -23,6 +29,6 @@ public class CaptionBlock : VBoxContainer
             await ToSignal(this, "ready");
         _text = newText;
 
-        // caption.text = text;
+        caption.Text = text;
     }
 }

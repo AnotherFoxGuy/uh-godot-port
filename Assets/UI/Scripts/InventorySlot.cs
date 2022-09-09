@@ -43,6 +43,10 @@ public class InventorySlot : TextureButton
 
     public void _Ready()
     {
+        textureRect = GetNode<TextureRect>("TextureRect");
+        label = GetNode<Label>("Label");
+        textureRect2 = GetNode<TextureRect>("TextureRect2");
+        
         textureRect2.RectPivotOffset = textureRect2.RectSize;
 
         UpdateDisplay();

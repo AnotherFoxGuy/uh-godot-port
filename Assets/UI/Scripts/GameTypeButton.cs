@@ -20,6 +20,7 @@ public class GameTypeButton : HBoxContainer
 
     public void _Ready()
     {
+        checkBox = GetNode<CheckBox>("CheckBox");
         checkBox.Text = _type;
     }
 

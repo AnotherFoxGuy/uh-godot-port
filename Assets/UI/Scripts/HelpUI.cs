@@ -13,7 +13,7 @@ public class HelpUI : Control
 
     public void _Ready()
     {
-        pageControl = FindNode("PageControl") as Control;
+        pageControl = GetNode<Control>("CenterContainer/TextureRect/MarginContainer/HBoxContainer/LeftPage/PageControl");
         pageControl.Visible = true;
         pageControl.GetNode<Button>("PrevButton").Disabled = true;
         pageControl.GetNode<Button>("NextButton").Disabled = true;

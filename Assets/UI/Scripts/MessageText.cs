@@ -8,23 +8,24 @@ using Array = Godot.Collections.Array;
 public class MessageText : Label
 {
 	 
-	[Export(MULTILINE)]  String messageText {set{SetMessageText(value);}}
+	[Export]  string messageText {set{SetMessageText(value);}}
+	private string _messageText;
 	
 	public void _Ready()
 	{  
-		SetMessageText(messageText);
+		SetMessageText(_messageText);
 	
 	}
 	
 	public void SetMessageText(String newMessageText)
 	{  
-		messageText = newMessageText;
-		text = messageText;
+		_messageText = newMessageText;
+		Text = _messageText;
 	
 		// After the text has been updated, decide whether
 		// resizing of the font is appropriate || !var font = Get("custom_fonts/font");
-		font.Set("size", 17) ;// default size to check against
-	
+		/* font.Set("size", 17) ;// default size to check against
+
 		if(GetLineCount() > 2)
 		{
 			// Make font unique so it won't mistakenly update other instances
@@ -42,7 +43,7 @@ public class MessageText : Label
 			GD.PrintErr("Text [new Dictionary(){0}] at {1} is too long.".Format(new Array(){text, self.name}));
 	
 	
-		}
+		}*/
 	}
 	
 	

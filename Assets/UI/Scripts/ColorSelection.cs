@@ -7,7 +7,7 @@ using Array = Godot.Collections.Array;
 
 public class ColorSelection : HBoxContainer
 {
-	 
+	/* 
 	// onready var selectedColor  = $TextureRect/SelectedColor
 	private Color selectedColor;
 	// onready var choices  = $Choices
@@ -16,6 +16,7 @@ public class ColorSelection : HBoxContainer
 	
 	public void _Ready()
 	{  
+		// selectedColor = GetNode<Color>("TextureRect/SelectedColor");
 		foreach(Node choice in choices.GetChildren())
 		{
 			choice.Connect("gui_input", this, "_on_choice_gui_input", new Array(){choice});
@@ -47,6 +48,6 @@ public class ColorSelection : HBoxContainer
 		}
 	}
 	
-	
+	*/
 	
 }

@@ -15,14 +15,14 @@ public class BalanceInfoButton : VBoxContainer
 
     private bool _showDetails;
 
-    private Spatial details; //$VBoxContainer/Details
+    private TextureRect details; //$VBoxContainer/Details
 
     public void _Process(float _delta)
     {
         if (Engine.IsEditorHint())
         {
-            // if(details == null)
-            // 	 details = $VBoxContainer/Details
+            if (details == null)
+                details = GetNode<TextureRect>("VBoxContainer/Details");
         }
         else
         {

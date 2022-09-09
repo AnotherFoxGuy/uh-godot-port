@@ -1,54 +1,70 @@
-
 using System;
 using Godot;
+using Godot.Collections;
 using Dictionary = Godot.Collections.Dictionary;
 using Array = Godot.Collections.Array;
 
 [Tool]
 public class MainMenuButton : TextureButton
 {
-	 
-	[Export("left", "right", "top", "bottom")]  public String alignment  = "left" {set{SetAlignment(value);}}
-	[Export] public string text  = "" {set{SetText(value);}}
-	[Export] public Texture texture = GD.Load("res://Assets/UI/Icons/MainMenu/help_bw.png") {set{SetTexture(value);}} // Fallback
-	
-	public Dictionary alignments = new Dictionary(){
-		left = new Vector2(-200, 30),
-		right = new Vector2(100, 30),
-		top = new Vector2(-50, -35),
-		bottom = new Vector2(-50, 100);
-	};
-	
-	public void _Ready()
-	{  
-		$Panel.rect_position = alignments[alignment];
-		$Panel/Label.text = text;
-		$Icon.texture = texture;
-	
-	}
-	
-	public void SetAlignment(String newAlignment)
-	{  
-		alignment = newAlignment;
-		$Panel.rect_position = alignments[alignment];
-	
-	}
-	
-	public void SetText(String newText)
-	{  
-		text = newText;
-		$Panel/Label.text = text;
-	
-	}
-	
-	public void SetTexture(Texture newTexture)
-	{  
-		texture = newTexture;
-		$Icon.texture = texture;
-	
-	
-	}
-	
-	
-	
+    [Export]
+    public string alignment
+    {
+        set { SetAlignment(value); }
+    }
+
+    private string _alignment = "left";
+
+    [Export]
+    public string text
+    {
+        set { SetText(value); }
+    }
+
+    string _text = "";
+
+    [Export]
+    public Texture texture
+    {
+        set { SetTexture(value); }
+    } // Fallback
+
+    private Texture _texture;
+
+    private Panel _panel;
+
+    public Dictionary<string, Vector2> alignments = new Dictionary<string, Vector2>()
+    {
+        { "left", new Vector2(-200, 30) },
+        { "right", new Vector2(100, 30) },
+        { "top", new Vector2(-50, -35) },
+        { "bottom", new Vector2(-50, 100) },
+    };
+
+    public void _Ready()
+    {
+        _panel = GetNode<Panel>("Panel");
+        _texture = GD.Load<Texture>("res://Assets/UI/Icons/MainMenu/help_bw.png");
+        _panel.RectPosition = alignments[_alignment];
+        GetNode<Label>("Panel/Label").Text = _text;
+        GetNode<TextureRect>("Icon").Texture = _texture;
+    }
+
+    public void SetAlignment(String newAlignment)
+    {
+        alignment = newAlignment;
+        _panel.RectPosition = alignments[_alignment];
+    }
+
+    public void SetText(String newText)
+    {
+        text = newText;
+        GetNode<Label>("Panel/Label").Text = _text;
+    }
+
+    public void SetTexture(Texture newTexture)
+    {
+        texture = newTexture;
+        GetNode<TextureRect>("Icon").Texture = _texture;
+    }
 }

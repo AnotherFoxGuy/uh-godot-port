@@ -53,6 +53,13 @@ public class BalanceInfoItem : HBoxContainer
 
     TextureRect textureRect; // = $TextureRect
     LabelEx label; //= $LabelEx
+    
+    public void _Ready()
+    {
+        textureRect = GetNode<TextureRect>("$TextureRect");
+        label = GetNode<LabelEx>("$LabelEx");
+    }
+
 
     public async void SetBalanceType(BalanceType newBalanceType)
     {
