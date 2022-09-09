@@ -16,7 +16,8 @@ public class TabWidget : Control
 	public signal buttonDiplomacyPressed
 	public signal buttonGameMenuPressed
 	
-	onready var body  = FindNode("Body") as Control;
+	onready var body  =
+	internal FindNode("Body") as Control;
 	
 	public async void _Ready()
 	{  
