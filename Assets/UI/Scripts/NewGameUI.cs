@@ -7,11 +7,11 @@ using Array = Godot.Collections.Array;
 [Tool]
 public class NewGameUI : BookMenu
 {
-	 
-	onready var playerName  = FindNode("PlayerName") as LineEditEx;
+	private LineEditEx playerName;
 	
 	public void _Ready()
-	{  
+	{
+		playerName = FindNode("PlayerName") as LineEditEx;
 		// Deactivate everything irrelevant for the time being
 		Dictionary nodes = new Dictionary(){
 			{"Scenario", null},
@@ -31,7 +31,7 @@ public class NewGameUI : BookMenu
 			return;
 	
 		}
-		playerName.text = Config.player_name;
+		playerName.text = Config.playerName;
 	
 	}
 	

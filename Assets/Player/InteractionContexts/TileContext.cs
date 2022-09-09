@@ -67,7 +67,7 @@ public class TileContext : InteractionContext
         phantomTile.PixelSize = 0.02f;
         phantomTile.MaterialOverride = material;
         AddChild(phantomTile);
-        Input.SetCustomMouseCursor(Cursor.CURSORTear, Input.CursorShape.Arrow);
+        Input.SetCustomMouseCursor(Cursor.cursors[Cursor.CursorType.CURSORTear], Input.CursorShape.Arrow);
 
         Connect("tiles_changed", streets, "update_tiles");
 
@@ -78,7 +78,7 @@ public class TileContext : InteractionContext
     {
         GD.Print($"InteractionContext {_contextName} exited");
         phantomTile.QueueFree();
-        Input.SetCustomMouseCursor(Cursor.CURSORDefault, Input.CursorShape.Arrow);
+        Input.SetCustomMouseCursor(Cursor.cursors[Cursor.CursorType.CURSORDefault], Input.CursorShape.Arrow);
 
         SetProcess(false);
     }

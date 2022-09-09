@@ -37,9 +37,9 @@ public class InventorySlot : TextureButton
     // onready var label = $Label
     // onready var textureRect2 = $TextureRect2
 
-    TextureRect textureRect;
-    Label label;
-    TextureRect textureRect2;
+    internal TextureRect textureRect;
+    internal Label label;
+    internal TextureRect textureRect2;
 
     public void _Ready()
     {

@@ -1,4 +1,3 @@
-
 using System;
 using Godot;
 using Dictionary = Godot.Collections.Dictionary;
@@ -7,80 +6,88 @@ using Array = Godot.Collections.Array;
 [Tool]
 public class Message : HBoxContainer
 {
-	 
-	enum MessageType {
-		ANCHOR,
-		DISASTERFire,
-		DISASTERPlague,
-		LETTER,
-		MONEY,
-		SAVE,
-		SYSTEM
-	}
-	
-	Export(MessageType) var messageType  = MessageType.LETTER {set{SetMessageType(value);}}
-	[Export(MULTILINE)]  String messageText {set{SetMessageText(value);}}
-	
-	onready var messageButton = $MessageButton
-	onready var messageTextPanel  = $MessageText
-	
-	public void _Ready()
-	{  
-		SetMessageText(messageText);
-		SetMessageType(messageType);
-	
-		if(!Engine.IsEditorHint())
-		{
-			Audio.PlaySnd("ships_bell");
-	
-		}
-	}
-	
-	public void SetMessageType(int newMessageType)
-	{  
-		messageType = newMessageType;
-		if(messageButton != null)
-		{
-			messageButton.message_type = messageType;
-	
-		}
-	}
-	
-	public void SetMessageText(String newMessageText)
-	{  
-		messageText = newMessageText;
-		if(messageTextPanel != null)
-		{
-			messageTextPanel.message_text = messageText;
-	
-		}
-	}
-	
-	public void _OnMessageButtonPressed()
-	{  
-		QueueFree();
-	
-	}
-	
-	public void _OnMessageButtonMouseEntered()
-	{  
-		messageTextPanel.visible = true;
-	
-	}
-	
-	public void _OnMessageButtonMouseExited()
-	{  
-		messageTextPanel.visible = false;
-	
-	}
-	
-	public void _OnTimerTimeout()
-	{  
-		messageTextPanel.visible = false;
-	
-	
-	}
-	
-	
-	
+    public enum MessageType
+    {
+        ANCHOR,
+        DISASTERFire,
+        DISASTERPlague,
+        LETTER,
+        MONEY,
+        SAVE,
+        SYSTEM
+    }
+
+    [Export]
+    MessageType messageType
+    {
+        set { SetMessageType(value); }
+    }
+
+    private MessageType _messageType = MessageType.LETTER;
+
+    [Export]
+    string messageText
+    {
+        set { SetMessageText(value); }
+    }
+
+    private string _messageText;
+
+    // onready var messageButton = $MessageButton
+    // onready var messageTextPanel  = $MessageText
+
+    private MessageButton messageButton;
+    private MessageText messageTextPanel;
+
+    public void _Ready()
+    {
+        messageButton = GetNode<MessageButton>("MessageButton");
+        messageTextPanel = GetNode<MessageText>("MessageText");
+
+        SetMessageText(_messageText);
+        SetMessageType(_messageType);
+
+        if (!Engine.IsEditorHint())
+        {
+            Audio.Instance.PlaySnd("ships_bell");
+        }
+    }
+
+    public void SetMessageType(MessageType newMessageType)
+    {
+        _messageType = newMessageType;
+        if (messageButton != null)
+        {
+            messageButton.messageType = _messageType;
+        }
+    }
+
+    public void SetMessageText(String newMessageText)
+    {
+        _messageText = newMessageText;
+        if (messageTextPanel != null)
+        {
+            messageTextPanel.messageText = _messageText;
+        }
+    }
+
+    public void _OnMessageButtonPressed()
+    {
+        QueueFree();
+    }
+
+    public void _OnMessageButtonMouseEntered()
+    {
+        messageTextPanel.Visible = true;
+    }
+
+    public void _OnMessageButtonMouseExited()
+    {
+        messageTextPanel.Visible = false;
+    }
+
+    public void _OnTimerTimeout()
+    {
+        messageTextPanel.Visible = false;
+    }
 }

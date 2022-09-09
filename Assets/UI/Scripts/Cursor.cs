@@ -16,7 +16,7 @@ public class Cursor : Node
         CURSORTear,
     }
 
-    public Dictionary<CursorType, Texture> cursors = new Dictionary<CursorType, Texture>()
+    public static Dictionary<CursorType, Texture> cursors = new Dictionary<CursorType, Texture>()
     {
         { CursorType.CURSORDefault, GD.Load<Texture>("res://Assets/UI/Images/Cursors/cursor.png") },
         { CursorType.CURSORAttack, GD.Load<Texture>("res://Assets/UI/Images/Cursors/cursor_attack.png") },

@@ -24,7 +24,7 @@ public class LineEditEx : HBoxContainer
     private string _description = "Descriptive Label:";
 
     [Export]
-    string text
+    public string text
     {
         set { SetText(value); }
     }

@@ -10,24 +10,25 @@ public class TabWidget : Control
 	 
 	// Base class for all TabWidget objects.
 	
-	public signal buttonTearPressed
-	public signal buttonLogbookPressed
-	public signal buttonBuildMenuPressed
-	public signal buttonDiplomacyPressed
-	public signal buttonGameMenuPressed
+	// public signal buttonTearPressed
+	// public signal buttonLogbookPressed
+	// public signal buttonBuildMenuPressed
+	// public signal buttonDiplomacyPressed
+	// public signal buttonGameMenuPressed
+
+	private Control body;//internal FindNode("Body") as Control;
 	
-	onready var body  =
-	internal FindNode("Body") as Control;
 	
 	public async void _Ready()
-	{  
-		if(owner is PlayerHUD)
+	{
+		body = FindNode("Body") as Control;
+		if(Owner is PlayerHUD)
 		{
-			Connect("button_tear_pressed", owner, "_on_TabWidget_button_tear_pressed");
-			Connect("button_logbook_pressed", owner, "_on_TabWidget_button_logbook_pressed");
-			Connect("button_build_menu_pressed", owner, "_on_TabWidget_button_build_menu_pressed");
-			Connect("button_diplomacy_pressed", owner, "_on_TabWidget_button_diplomacy_pressed");
-			Connect("button_game_menu_pressed", owner, "_on_TabWidget_button_game_menu_pressed");
+			Connect("button_tear_pressed", Owner, "_on_TabWidget_button_tear_pressed");
+			Connect("button_logbook_pressed", Owner, "_on_TabWidget_button_logbook_pressed");
+			Connect("button_build_menu_pressed", Owner, "_on_TabWidget_button_build_menu_pressed");
+			Connect("button_diplomacy_pressed", Owner, "_on_TabWidget_button_diplomacy_pressed");
+			Connect("button_game_menu_pressed", Owner, "_on_TabWidget_button_game_menu_pressed");
 	
 			// Hide empty detail widget section on runtime
 			if(body.GetChild(0).GetChildCount() == 0)
@@ -62,14 +63,15 @@ public class TabWidget : Control
 	
 	public void UpdateData(Dictionary contextData)
 	{  
-		foreach(var data in contextData)
+		foreach(string data in contextData)
 		{
 			GD.PrintS("data:", data) ;// TownName
 			var node = FindNode(data);
 	
 			if(node is Label)
 			{
-				node.text = contextData[data];
+				var x = node as Label;
+				x.Text = contextData[data] as string;
 	
 			}
 		}
@@ -85,7 +87,7 @@ public class TabWidget : Control
 	//			body.rect_min_size.y = childContainer.rect_size.y;
 	
 			// Keep the size of one tile visible at all times
-			body.rect_min_size.y = body.texture.GetSize().y;
+			body.RectMinSize.y = body.texture.GetSize().y;
 	
 			// This will squeeze in all children to their least required sizes
 			body.rect_size.y = body.rect_min_size.y;

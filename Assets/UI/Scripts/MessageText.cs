@@ -8,7 +8,7 @@ using Array = Godot.Collections.Array;
 public class MessageText : Label
 {
 	 
-	[Export]  string messageText {set{SetMessageText(value);}}
+	[Export] public string messageText {set{SetMessageText(value);}}
 	private string _messageText;
 	
 	public void _Ready()

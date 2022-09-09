@@ -9,16 +9,17 @@ public class ShipMenuTabWidget : TabWidget
 {
 	 
 	//onready var factionIndicator = $WidgetDetail/Body/ShipMenu/MarginContainer/FactionIndicator
-	onready var factionIndicator = FindNode("FactionIndicator");
+	 TextureRect factionIndicator;
 	
 	public void _Ready()
-	{  
+	{
+		factionIndicator = FindNode("FactionIndicator") as TextureRect;
 		if(Engine.IsEditorHint())
 		{
 			return;
 	
 		}
-		factionIndicator.texture = Global.FACTION_FLAGS[Global.faction];
+		factionIndicator.Texture = Global.FACTIONFlags[(int)Global.faction];
 	
 	
 	}

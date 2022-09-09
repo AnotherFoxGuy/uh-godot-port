@@ -28,7 +28,7 @@ public class OptionsUI : BookMenu
 		"3840x2160",
 	};
 	
-	onready Dictionary settings = new Dictionary(){
+	 Dictionary settings = new Dictionary(){
 		{"AutosaveInterval", FindNode("AutosaveInterval") as HSliderEx},
 		{"NumberOfAutosaves", FindNode("NumberOfAutosaves") as HSliderEx},
 		{"NumberOfQuicksaves", FindNode("NumberOfQuicksaves") as HSliderEx},
