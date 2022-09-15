@@ -33,7 +33,7 @@ public class TabWidget : Control
 			// Hide empty detail widget section on runtime
 			if(body.GetChild(0).GetChildCount() == 0)
 			{
-				$WidgetDetail.visible = false;
+				GetNode<Spatial>("WidgetDetail").Visible = false;
 	
 	//	if body.GetChildCount() > 0:
 	//		var childContainer = body.GetChild(0) as Control;
@@ -41,7 +41,7 @@ public class TabWidget : Control
 		}
 		if(body.GetChildCount() > 0)
 		{
-			foreach(var childContainer in body.GetChildren())
+			foreach(Spatial childContainer in body.GetChildren())
 			{
 				//prints("Attach signals to", childContainer.name, "of", self.name)
 				//child_container.Connect("resized", this, "_on_TabContainer_resized")
@@ -87,22 +87,25 @@ public class TabWidget : Control
 	//			body.rect_min_size.y = childContainer.rect_size.y;
 	
 			// Keep the size of one tile visible at all times
-			body.RectMinSize.y = body.texture.GetSize().y;
+			// body.RectMinSize.y = body.Texture.GetSize().y;
+			
+			// body.RectMinSize = new Vector2(body.RectMinSize.x,body.texture.GetSize().y );
 	
 			// This will squeeze in all children to their least required sizes
-			body.rect_size.y = body.rect_min_size.y;
+			// body.rect_size.y = body.rect_min_size.y;
+			body.RectSize = new Vector2(body.RectSize.x, body.RectMinSize.y);
 	
 			// Now extend the whole thing based on the biggest child
 			if(body.GetChildCount() > 0)
 			{
 				//print("Adapt rectMinSize to body content consisting of:")
 				//prints("Adapt rectMinSize for", self.name)
-				foreach(var childContainer in body.GetChildren())
+				foreach(Container childContainer in body.GetChildren())
 				{
 					//print("\t", childContainer.name)
-					if(childContainer.rect_size.y > body.rect_min_size.y)
+					if(childContainer.RectSize.y > body.RectMinSize.y)
 					{
-						body.rect_min_size.y = childContainer.rect_size.y;
+						body.RectMinSize = new Vector2(body.RectMinSize.x, childContainer.RectMinSize.y) ;
 					}
 				}
 			}
@@ -113,10 +116,10 @@ public class TabWidget : Control
 			// Bug? rectSize should always be >= rectMinSize.
 			// Enforce it then.
 			}
-			body.rect_size.y = body.rect_min_size.y;
+			body.RectSize = new Vector2(body.RectSize.x, body.RectMinSize.y) ;
 	
-			var bottomNewPosition = body.rect_position.y + body.rect_size.y - 1;
-			body.GetParent().GetChildren()[-1].rect_position.y = bottomNewPosition;
+			var bottomNewPosition = body.RectPosition.y + body.RectSize.y - 1;
+			// body.GetParent().GetChildren()[-1].rect_position.y = bottomNewPosition;
 	
 	//func _OnTabContainerResized() -> void:
 	//	GD.PrintS("resized on", self.name)

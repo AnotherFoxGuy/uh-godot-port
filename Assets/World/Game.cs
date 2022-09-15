@@ -52,7 +52,7 @@ public class Game : Spatial
         if (playerStart != null)
         {
             player = new Player();
-            player.faction = Global.Instance.faction;
+            player.faction = Global.faction;
 
             AddChild(player);
             // warning-ignore:returnValueDiscarded

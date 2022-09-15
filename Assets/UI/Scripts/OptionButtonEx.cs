@@ -4,7 +4,7 @@ using Dictionary = Godot.Collections.Dictionary;
 using Array = Godot.Collections.Array;
 
 [Tool]
-public class OptionButtonEx : HBoxContainer
+public class OptionButtonEx : OptionButton
 {
     // OptionButton with a descriptive Label component
 

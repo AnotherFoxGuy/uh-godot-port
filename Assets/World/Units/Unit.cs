@@ -102,7 +102,7 @@ public class Unit : WorldThing
     {
         path = _asMap.GetTilemapPath(Utils.Map3To2(GlobalTransform.origin), targetPos);
         pathIndex = 0;
-        if (faction == Global.Instance.faction && path.Length == 0)
+        if (faction == Global.faction && path.Length == 0)
         {
             // Only show when the unit actually moves
             if (path.Length > 2)

@@ -356,6 +356,8 @@ public class Global : Node
     // -------
     public static Game Game = null;
     public static Spatial PlayerStart = null;
+    public static string PlayerName;
+    public static string Language;
 
     private bool _warning = false; // DEBUG
 
@@ -458,4 +460,5 @@ public class Global : Node
         new Lazy<Global>(() => new Global());
 
     public static Global Instance => lazy.Value;
+    
 }

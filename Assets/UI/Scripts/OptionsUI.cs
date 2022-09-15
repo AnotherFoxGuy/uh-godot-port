@@ -7,7 +7,7 @@ using Array = Godot.Collections.Array;
 [Tool]
 public class OptionsUI : BookMenu
 {
-	 
+	/* 
 	// Screen resolution choices
 	public static readonly Array SCREENResolutions = new Array(){
 		"800x600",
@@ -221,6 +221,6 @@ public class OptionsUI : BookMenu
 	
 	}
 	
-	
+	*/
 	
 }

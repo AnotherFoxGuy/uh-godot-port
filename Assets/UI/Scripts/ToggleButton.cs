@@ -17,17 +17,23 @@ public class ToggleButton : WidgetButton
         set { SetTextureNormalInitial(value); }
     }
 
+    private Texture _textureNormalInitial;
+
     [Export]
     Texture texturePressedInitial
     {
         set { SetTexturePressedInitial(value); }
     }
 
+    private Texture _texturePressedInitial;
+
     [Export]
     Texture textureHoverInitial
     {
         set { SetTextureHoverInitial(value); }
     }
+
+    private Texture _textureHoverInitial;
 
     [Export] Texture textureNormalAlternate;
     [Export] Texture texturePressedAlternate;
@@ -63,24 +69,24 @@ public class ToggleButton : WidgetButton
 
     public void SetTextureNormalInitial(Texture newTextureNormalInitial)
     {
-        textureNormalInitial = newTextureNormalInitial;
-        TextureNormal = textureNormalInitial;
+        _textureNormalInitial = newTextureNormalInitial;
+        TextureNormal = _textureNormalInitial;
 
         PropertyListChangedNotify();
     }
 
     public void SetTexturePressedInitial(Texture newTexturePressedInitial)
     {
-        texturePressedInitial = newTexturePressedInitial;
-        TexturePressed = texturePressedInitial;
+        _texturePressedInitial = newTexturePressedInitial;
+        TexturePressed = _texturePressedInitial;
 
         PropertyListChangedNotify();
     }
 
     public void SetTextureHoverInitial(Texture newTextureHoverInitial)
     {
-        textureHoverInitial = newTextureHoverInitial;
-        TextureHover = textureHoverInitial;
+        _textureHoverInitial = newTextureHoverInitial;
+        TextureHover = _textureHoverInitial;
 
         PropertyListChangedNotify();
     }
@@ -91,12 +97,12 @@ public class ToggleButton : WidgetButton
         {
             if (Pressed)
             {
-                animatedTexture.Hide();
-                TextureNormal = !Pressed ? textureNormalInitial : textureNormalAlternate;
+                // animatedTexture.Hide();
+                TextureNormal = !Pressed ? _textureNormalInitial : textureNormalAlternate;
             }
             else
             {
-                animatedTexture.Show();
+                // animatedTexture.Show();
                 TextureNormal = null;
                 //prints("animated_texture.visible:", animatedTexture.visible)
             }
@@ -105,9 +111,9 @@ public class ToggleButton : WidgetButton
 
     public void _OnActionButtonGuiInput(InputEvent _event)
     {
-        if (animatedTexture)
+        if (animatedTexture != null)
         {
-            animatedTexture.Hide();
+            // animatedTexture.Hide();
 
             //func _OnActionButtonMouseEntered() -> void:
             //	animatedTexture.Hide()
@@ -116,11 +122,11 @@ public class ToggleButton : WidgetButton
 
     public void _OnActionButtonMouseExited()
     {
-        if (animatedTexture)
+        if (animatedTexture != null)
         {
             if (!Pressed)
             {
-                animatedTexture.Show();
+                // animatedTexture.Show();
             }
         }
     }
