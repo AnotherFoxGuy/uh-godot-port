@@ -17,7 +17,8 @@ public class OptionButtonEx : OptionButton
     [Export]
     string description
     {
-        set { SetDescription(value); }
+        set => SetDescription(value);
+        get => _description;
     }
 
     private string _description = "Descriptive Label:";
@@ -25,7 +26,8 @@ public class OptionButtonEx : OptionButton
     [Export]
     Array options
     {
-        set { SetOptions(value); }
+        set => SetOptions(value);
+        get => _options;
     }
 
     private Array _options;
@@ -33,7 +35,8 @@ public class OptionButtonEx : OptionButton
     [Export]
     int selected
     {
-        set { SetSelected(value); }
+        set => SetSelected(value);
+        get => _selected;
     }
 
     private int _selected = -1;
@@ -41,7 +44,8 @@ public class OptionButtonEx : OptionButton
     [Export]
     public string alignStyle
     {
-        set { SetAlignStyle(value); }
+        set => SetAlignStyle(value);
+        get => _alignStyle;
     }
 
     private string _alignStyle = "Left";

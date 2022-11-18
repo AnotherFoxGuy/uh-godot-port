@@ -18,7 +18,8 @@ public class LineEditEx : HBoxContainer
     [Export]
     string description
     {
-        set { SetDescription(value); }
+        get => _description;
+        set => SetDescription(value);
     }
 
     private string _description = "Descriptive Label:";
@@ -26,7 +27,8 @@ public class LineEditEx : HBoxContainer
     [Export]
     public string text
     {
-        set { SetText(value); }
+        get => _text;
+        set => SetText(value);
     }
 
     private string _text = "Example Text";
@@ -34,7 +36,8 @@ public class LineEditEx : HBoxContainer
     [Export]
     public LineEdit.AlignEnum alignStyle
     {
-        set { SetAlignStyle(value); }
+        get => _alignStyle;
+        set => SetAlignStyle(value);
     }
 
     private LineEdit.AlignEnum _alignStyle = LineEdit.AlignEnum.Left;

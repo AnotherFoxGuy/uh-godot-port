@@ -11,7 +11,8 @@ public class InventorySlot : TextureButton
     [Export]
     Global.ResourceType resourceType
     {
-        set { SetResourceType(value); }
+        set => SetResourceType(value);
+        get => _resourceType;
     }
 
     private Global.ResourceType _resourceType;
@@ -19,7 +20,8 @@ public class InventorySlot : TextureButton
     [Export]
     int resourceValue
     {
-        set { SetResourceValue(value); }
+        set => SetResourceValue(value);
+        get => _resourceValue;
     }
 
     private int _resourceValue;
@@ -28,7 +30,8 @@ public class InventorySlot : TextureButton
     [Export]
     int storageLimit
     {
-        set { SetStorageLimit(value); }
+        set => SetStorageLimit(value);
+        get => _storageLimit;
     }
 
     private int _storageLimit = 30;

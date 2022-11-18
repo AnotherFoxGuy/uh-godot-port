@@ -10,7 +10,8 @@ public class MainMenuButton : TextureButton
     [Export]
     public string alignment
     {
-        set { SetAlignment(value); }
+        get => _alignment;
+        set => SetAlignment(value);
     }
 
     private string _alignment = "left";
@@ -18,7 +19,8 @@ public class MainMenuButton : TextureButton
     [Export]
     public string text
     {
-        set { SetText(value); }
+        get => _text;
+        set => SetText(value);
     }
 
     string _text = "";
@@ -26,7 +28,8 @@ public class MainMenuButton : TextureButton
     [Export]
     public Texture texture
     {
-        set { SetTexture(value); }
+        get => _texture;
+        set => SetTexture(value);
     } // Fallback
 
     private Texture _texture;
@@ -41,7 +44,7 @@ public class MainMenuButton : TextureButton
         { "bottom", new Vector2(-50, 100) },
     };
 
-    public void _Ready()
+    public override void _Ready()
     {
         _panel = GetNode<Panel>("Panel");
         _texture = GD.Load<Texture>("res://Assets/UI/Icons/MainMenu/help_bw.png");
@@ -52,19 +55,20 @@ public class MainMenuButton : TextureButton
 
     public void SetAlignment(String newAlignment)
     {
-        alignment = newAlignment;
-        _panel.RectPosition = alignments[_alignment];
+        _alignment = newAlignment;
+        if (_panel != null)
+            _panel.RectPosition = alignments[_alignment];
     }
 
     public void SetText(String newText)
     {
-        text = newText;
+        _text = newText;
         GetNode<Label>("Panel/Label").Text = _text;
     }
 
     public void SetTexture(Texture newTexture)
     {
-        texture = newTexture;
+        _texture = newTexture;
         GetNode<TextureRect>("Icon").Texture = _texture;
     }
 }

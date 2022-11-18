@@ -9,7 +9,8 @@ public class GameTypeButton : HBoxContainer
     [Export]
     string type
     {
-        set { SetNewType(value); }
+        get => _type;
+        set => SetNewType(value);
     }
 
     private string _type;

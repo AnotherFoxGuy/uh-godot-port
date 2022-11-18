@@ -15,7 +15,8 @@ public class HSliderEx : VBoxContainer
     [Export]
     string description
     {
-        set { SetDescription(value); }
+        get => _description;
+        set => SetDescription(value);
     }
 
     private string _description = "Unknown Slider:";
@@ -25,7 +26,8 @@ public class HSliderEx : VBoxContainer
     [Export]
     float minValue
     {
-        set { SetMinValue(value); }
+        get => _minValue;
+        set => SetMinValue(value);
     }
 
     private float _minValue = 0.0f;
@@ -33,7 +35,8 @@ public class HSliderEx : VBoxContainer
     [Export]
     float maxValue
     {
-        set { SetMaxValue(value); }
+        get => _maxValue;
+        set => SetMaxValue(value);
     }
 
     private float _maxValue = 100.0f;
@@ -41,7 +44,8 @@ public class HSliderEx : VBoxContainer
     [Export]
     float step
     {
-        set { SetStep(value); }
+        get => _step;
+        set => SetStep(value);
     }
 
     private float _step = 1.0f;
@@ -49,7 +53,8 @@ public class HSliderEx : VBoxContainer
     [Export]
     float value
     {
-        set { SetValue(value); }
+        get => _value;
+        set => SetValue(value);
     }
 
     private float _value = 0.0f;

@@ -47,7 +47,8 @@ public class LabelEx : Label
     [Export]
     FontStyle fontStyle
     {
-        set { SetFontStyle(value); }
+        get => _fontStyle;
+        set => SetFontStyle(value);
     }
 
     private FontStyle _fontStyle = FontStyle.SMALL;

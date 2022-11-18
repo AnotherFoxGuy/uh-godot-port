@@ -14,7 +14,7 @@ public class CheckBoxEx : HBoxContainer
     [Export]
     private string description
     {
-        set { SetDescription(value); }
+        set => SetDescription(value);
         get => _description;
     }
 
@@ -23,7 +23,8 @@ public class CheckBoxEx : HBoxContainer
     [Export]
     bool Checked
     {
-        set { SetChecked(value); }
+        get => _checked;
+        set => SetChecked(value);
     }
 
     private bool _checked;

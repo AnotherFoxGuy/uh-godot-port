@@ -14,7 +14,8 @@ public class ToggleButton : WidgetButton
     [Export]
     Texture textureNormalInitial
     {
-        set { SetTextureNormalInitial(value); }
+        get => _textureNormalInitial;
+        set => SetTextureNormalInitial(value);
     }
 
     private Texture _textureNormalInitial;
@@ -22,7 +23,8 @@ public class ToggleButton : WidgetButton
     [Export]
     Texture texturePressedInitial
     {
-        set { SetTexturePressedInitial(value); }
+        get => _texturePressedInitial;
+        set => SetTexturePressedInitial(value);
     }
 
     private Texture _texturePressedInitial;
@@ -30,7 +32,8 @@ public class ToggleButton : WidgetButton
     [Export]
     Texture textureHoverInitial
     {
-        set { SetTextureHoverInitial(value); }
+        get => _textureHoverInitial;
+        set => SetTextureHoverInitial(value);
     }
 
     private Texture _textureHoverInitial;

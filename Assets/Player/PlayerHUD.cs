@@ -64,8 +64,11 @@ public class PlayerHUD : Control
     [Export]
     UIContext uiContext
     {
+        get => _uiContext;
         set { SetUiContext(value); }
     }
+
+    private UIContext _uiContext;
 
     public Dictionary contextData = new Dictionary() { };
 
@@ -138,7 +141,7 @@ public class PlayerHUD : Control
             }
         }
 
-        uiContext = newUiContext;
+        _uiContext = newUiContext;
     }
 
     public void RaiseNotification(int messageType, String messageText)

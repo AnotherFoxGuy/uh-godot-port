@@ -40,7 +40,7 @@ public class MainMenuUI : Control
 			var subscene = _scenes[scene].Instance();
 			// subscene.GetParent() = this;
 			Visible = false;
-			GetTree().GetRoot().AddChild(subscene);
+			GetTree().Root.AddChild(subscene);
 		}
 		else
 		{
