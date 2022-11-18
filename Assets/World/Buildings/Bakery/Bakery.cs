@@ -17,8 +17,7 @@ public class Bakery : Building
     };
     public new void _Ready()
     {
-        BAKERYIdle =
-            GD.Load("res://Assets/World/Buildings/Bakery/Sprites/Bakery_idle.png") as Texture;
+        BAKERYIdle = GD.Load("res://Assets/World/Buildings/Bakery/Sprites/Bakery_idle.png") as Texture;
 
         BAKERYWorkAnim = new Array<Texture>()
         {

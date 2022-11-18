@@ -84,7 +84,7 @@ public class AStarMap : Spatial
                             continue;
                         }
 
-                        if (allPoints.Contains<>(V2ToIndex(v2 + tile)))
+                        /*if (allPoints.Contains(V2ToIndex(v2 + tile)))
                         {
                             var ind1 = allPoints[V2ToIndex(tile)];
                             var ind2 = allPoints[V2ToIndex(tile + v2)];
@@ -92,7 +92,7 @@ public class AStarMap : Spatial
                             {
                                 asNode.ConnectPoints(ind1, ind2, true);
                             }
-                        }
+                        }*/
                     }
                 }
             }
@@ -119,7 +119,7 @@ public class AStarMap : Spatial
         var gmEnd = V2ToIndex(gridMap.WorldToTilemap(end));
         int startId = 0;
         int endId = 0;
-        if (allPoints.Contains<>(gmStart))
+        /*if (allPoints.Contains<>(gmStart))
         {
             startId = allPoints[gmStart];
         }
@@ -136,7 +136,7 @@ public class AStarMap : Spatial
         {
             endId = asNode.GetClosestPoint(end);
         }
-
+*/
         return asNode.GetPointPath(startId, endId);
     }
 
