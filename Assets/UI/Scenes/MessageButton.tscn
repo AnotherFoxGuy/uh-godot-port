@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Assets/UI/Scripts/MessageButton.gd" type="Script" id=1]
+[ext_resource path="res://Assets/UI/Scripts/MessageButton.cs" type="Script" id=1]
 [ext_resource path="res://Assets/UI/Icons/Widgets/Messages/msg_letter.png" type="Texture" id=2]
 [ext_resource path="res://Assets/UI/Icons/Widgets/Messages/msg_letter_d.png" type="Texture" id=3]
 [ext_resource path="res://Assets/UI/Icons/Widgets/Messages/msg_letter_h.png" type="Texture" id=4]

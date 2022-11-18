@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/World/Buildings/Building.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/World/Buildings/Lookout/Lookout.gd" type="Script" id=2]
+[ext_resource path="res://Assets/World/Buildings/Lookout/Lookout.cs" type="Script" id=2]
 [ext_resource path="res://Assets/World/Shapes/BoxShape1x1.tres" type="Shape" id=3]
 [ext_resource path="res://Assets/World/Buildings/Lookout/Sprites/Lookout_idle.png" type="Texture" id=4]
 

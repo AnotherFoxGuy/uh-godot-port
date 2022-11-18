@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/UI/Themes/MenuTheme.tres" type="Theme" id=1]
-[ext_resource path="res://Assets/UI/Scripts/MainMenuUI.gd" type="Script" id=2]
+[ext_resource path="res://Assets/UI/Scripts/MainMenuUI.cs" type="Script" id=2]
 [ext_resource path="res://Assets/UI/Images/Background/MainMenu/wheel.png" type="Texture" id=3]
 [ext_resource path="res://Assets/UI/Scenes/MainMenuButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/UI/Icons/MainMenu/compass.png" type="Texture" id=5]

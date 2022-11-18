@@ -11,8 +11,8 @@
 [ext_resource path="res://Assets/UI/Scenes/Separator.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/UI/Scenes/CaptionBlock.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/UI/Images/Background/MainMenu/selected_color_border.png" type="Texture" id=11]
-[ext_resource path="res://Assets/UI/Scripts/ColorSelection.gd" type="Script" id=12]
-[ext_resource path="res://Assets/UI/Scripts/MapList.gd" type="Script" id=13]
+[ext_resource path="res://Assets/UI/Scripts/ColorSelection.cs" type="Script" id=12]
+[ext_resource path="res://Assets/UI/Scripts/MapList.cs" type="Script" id=13]
 [ext_resource path="res://Assets/UI/Images/Logos/uh_no_text.svg" type="Texture" id=14]
 [ext_resource path="res://Assets/UI/Scenes/GameTypeButton.tscn" type="PackedScene" id=15]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Assets/UI/Scripts/HelpUI.gd" type="Script" id=1]
+[ext_resource path="res://Assets/UI/Scripts/HelpUI.cs" type="Script" id=1]
 [ext_resource path="res://Assets/UI/Fonts/SmallFontItalic.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/UI/Scenes/CaptionBlock.tscn" type="PackedScene" id=3]
 [ext_resource path="res://External/Fonts/LinLibertine.tres" type="DynamicFontData" id=4]

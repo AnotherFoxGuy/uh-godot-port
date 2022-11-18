@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/UI/Fonts/SmallFontItalic.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Assets/UI/Scripts/TabWidget.gd" type="Script" id=2]
+[ext_resource path="res://Assets/UI/Scripts/TabWidget.cs" type="Script" id=2]
 [ext_resource path="res://Assets/UI/Images/Background/Widgets/map_bg.png" type="Texture" id=3]
 [ext_resource path="res://Assets/UI/Images/TabWidget/main_bg_top.png" type="Texture" id=4]
 [ext_resource path="res://Assets/UI/Images/TabWidget/main_bg_fill.png" type="Texture" id=5]

@@ -3,11 +3,11 @@
 [ext_resource path="res://Assets/Player/PlayerStart.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/World/Terrain/TerrainMeshLibrary.tres" type="MeshLibrary" id=2]
 [ext_resource path="res://Assets/Player/PlayerCamera.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/World/Game.gd" type="Script" id=5]
-[ext_resource path="res://Assets/World/Terrain.gd" type="Script" id=7]
-[ext_resource path="res://Assets/World/AStarMap.gd" type="Script" id=8]
+[ext_resource path="res://Assets/World/Game.cs" type="Script" id=5]
+[ext_resource path="res://Assets/World/Terrain.cs" type="Script" id=7]
+[ext_resource path="res://Assets/World/AStarMap.cs" type="Script" id=8]
 [ext_resource path="res://Assets/World/Buildings/Streets/TrailMeshLibrary.meshlib" type="MeshLibrary" id=9]
-[ext_resource path="res://Assets/World/Streets.gd" type="Script" id=10]
+[ext_resource path="res://Assets/World/Streets.cs" type="Script" id=10]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 100, 0, 100 )

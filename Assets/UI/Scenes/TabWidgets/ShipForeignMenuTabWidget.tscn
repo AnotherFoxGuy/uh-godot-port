@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/UI/Scenes/Caption.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/UI/Scenes/TabWidgets/TabWidget.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/UI/Icons/TabWidget/Ship/ship_inv_a.png" type="Texture" id=5]
-[ext_resource path="res://Assets/UI/Scripts/ShipForeignMenuTabWidget.gd" type="Script" id=6]
+[ext_resource path="res://Assets/UI/Scripts/ShipForeignMenuTabWidget.cs" type="Script" id=6]
 [ext_resource path="res://Assets/UI/Scenes/TabWidgets/Switches/Switches/ShipSwitchTabWidget.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/UI/Scenes/HSeparator.tscn" type="PackedScene" id=8]
 

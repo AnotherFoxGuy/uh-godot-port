@@ -1,2 +1,0 @@
-extends InteractionContext
-class_name TearContext

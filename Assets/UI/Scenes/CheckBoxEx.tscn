@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/UI/Fonts/SmallFontItalic.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Assets/UI/Scripts/CheckBoxEx.gd" type="Script" id=2]
+[ext_resource path="res://Assets/UI/Scripts/CheckBoxEx.cs" type="Script" id=2]
 [ext_resource path="res://Assets/UI/Themes/Theme.tres" type="Theme" id=3]
 [ext_resource path="res://Assets/UI/Scenes/Labels/LabelEx.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/UI/Scripts/CheckBox.gd" type="Script" id=5]
+[ext_resource path="res://Assets/UI/Scripts/CheckBox.cs" type="Script" id=5]
 
 [node name="CheckBoxEx" type="HBoxContainer"]
 margin_right = 154.0
